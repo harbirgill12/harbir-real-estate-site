@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Closing Cost Estimator | Harbir Gill</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-inner">
+    <div class="brand">Harbir Gill</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown" data-dd>
+        <button type="button" data-dd-btn>Services ▼</button>
+        <div class="menu" data-dd-menu>
+          <a href="buyers.html">First-Time Buyers</a>
+          <a href="investors.html">Investors</a>
+        </div>
+      </div>
+
+      <div class="dropdown" data-dd>
+        <button type="button" data-dd-btn>Tools ▼</button>
+        <div class="menu" data-dd-menu>
+          <a href="mortgage-calculator.html">Mortgage Calculator</a>
+          <a href="closing-cost-estimator.html">Closing Cost Estimator</a>
+        </div>
+      </div>
+
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="section">
+<div class="card">
+<h1>Ontario Closing Cost Estimator</h1>
+<p>Estimate buyer or seller closing costs. This tool provides structured approximations for planning purposes only.</p>
+
+<div class="hr"></div>
+
+<label>Transaction Type</label>
+<select id="type">
+  <option value="buyer">Buyer</option>
+  <option value="seller">Seller</option>
+</select>
+
+<label>Purchase / Sale Price (CAD)</label>
+<input id="price" inputmode="decimal" placeholder="e.g. 800000">
+
+<label>Is property located in Toronto?</label>
+<select id="toronto">
+  <option value="no">No</option>
+  <option value="yes">Yes (Toronto Municipal LTT applies)</option>
+</select>
+
+<label>Commission % (for seller only)</label>
+<input id="commission" inputmode="decimal" placeholder="e.g. 5">
+
+<div style="margin-top:16px;">
+  <button class="btn" onclick="calculate()">Calculate</button>
+</div>
+
+<div class="hr"></div>
+
+<h2>Estimated Breakdown</h2>
+<div id="results" class="small">Enter values and calculate.</div>
+
+</div>
+</div>
+
+<footer>
+© <span id="year"></span> Harbir Gill. Estimates only. Not legal advice.
+</footer>
+</div>
+
+<script>
+// dropdown logic
+const dropdowns = document.querySelectorAll('[data-dd]');
+dropdowns.forEach(dd => {
+  const btn = dd.querySelector('[data-dd-btn]');
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdowns.forEach(x => { if (x !== dd) x.classList.remove('open'); });
+    dd.classList.toggle('open');
+  });
+});
+document.addEventListener('click', () => dropdowns.forEach(x => x.classList.remove('open')));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function num(v){ return Number(String(v).replace(/,/g,'')) || 0; }
+function money(n){ return n.toLocaleString('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}); }
+
+// Ontario Land Transfer Tax
+function ontarioLTT(price){
+  let tax = 0;
+  if(price > 2000000){
+    tax += (price - 2000000) * 0.025;
+    price = 2000000;
+  }
+  if(price > 400000){
+    tax += (price - 400000) * 0.02;
+    price = 400000;
+  }
+  if(price > 250000){
+    tax += (price - 250000) * 0.015;
+    price = 250000;
+  }
+  if(price > 55000){
+    tax += (price - 55000) * 0.01;
+    price = 55000;
+  }
+  tax += price * 0.005;
+  return tax;
+}
+
+function calculate(){
+  const type = document.getElementById("type").value;
+  const price = num(document.getElementById("price").value);
+  const toronto = document.getElementById("toronto").value;
+  const commission = num(document.getElementById("commission").value);
+
+  if(price <= 0){
+    document.getElementById("results").innerHTML = "Enter valid price.";
+    return;
+  }
+
+  let html = "";
+
+  if(type === "buyer"){
+    const provTax = ontarioLTT(price);
+    const torTax = toronto === "yes" ? ontarioLTT(price) : 0;
+    const legal = 1800;
+    const title = 400;
+    const inspection = 500;
+    const adjustments = 1000;
+
+    const total = provTax + torTax + legal + title + inspection + adjustments;
+
+    html += "Provincial Land Transfer Tax: " + money(provTax) + "<br>";
+    if(toronto === "yes") html += "Toronto Municipal LTT: " + money(torTax) + "<br>";
+    html += "Legal Fees Estimate: " + money(legal) + "<br>";
+    html += "Title Insurance: " + money(title) + "<br>";
+    html += "Home Inspection: " + money(inspection) + "<br>";
+    html += "Adjustment Buffer: " + money(adjustments) + "<br>";
+    html += "<div class='hr'></div><strong>Total Estimated Closing Cost: " + money(total) + "</strong>";
+  }
+
+  if(type === "seller"){
+    const comm = price * (commission/100);
+    const legal = 1800;
+    const discharge = 1000;
+    const total = comm + legal + discharge;
+
+    html += "Realtor Commission: " + money(comm) + "<br>";
+    html += "Legal Fees Estimate: " + money(legal) + "<br>";
+    html += "Mortgage Discharge Estimate: " + money(discharge) + "<br>";
+    html += "<div class='hr'></div><strong>Total Estimated Seller Cost: " + money(total) + "</strong>";
+  }
+
+  document.getElementById("results").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
