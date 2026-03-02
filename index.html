@@ -1,121 +1,1456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harbir Gill | Realtor | Brampton & GTA</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Victoria Hale — Luxury Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:   #F5F0E8;
+      --cream2:  #EDE7D9;
+      --ivory:   #FAF7F2;
+      --charcoal:#1A1916;
+      --charcoal2:#242320;
+      --charcoal3:#2E2C28;
+      --warm-mid:#6B6456;
+      --warm-lt: #9C9185;
+      --gold:    #B8975A;
+      --gold2:   #D4B07A;
+      --rust:    #8B4A2F;
+      --line:    rgba(184,151,90,0.2);
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#0b1220;
-  color:#e2e8f0;
-}
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 30px;
-  background:#111827;
-}
-nav a{
-  color:#e2e8f0;
-  text-decoration:none;
-  margin-left:20px;
-  font-weight:bold;
-}
-.hero{
-  height:90vh;
-  background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
-  url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-}
-.hero h1{
-  font-size:48px;
-  margin-bottom:20px;
-}
-.hero p{
-  font-size:20px;
-  color:#cbd5e1;
-  max-width:800px;
-  margin:auto;
-}
-.button{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 26px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:bold;
-}
-footer{
-  text-align:center;
-  padding:40px;
-  color:#64748b;
-}
-</style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--ivory);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cursor {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+    .cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s;
+    }
+    .cursor-ring {
+      position: fixed; top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: all 0.12s ease;
+      z-index: 9998;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.8rem 5rem;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      text-decoration: none;
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .nav-logo span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex; gap: 3rem; align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--warm-mid);
+      transition: color 0.25s;
+    }
+    nav a:hover { color: var(--charcoal); }
+
+    .nav-btn {
+      background: var(--charcoal);
+      color: var(--cream) !important;
+      padding: 0.65rem 1.8rem;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase;
+      font-weight: 500 !important;
+      transition: background 0.3s !important;
+    }
+    .nav-btn:hover { background: var(--gold) !important; color: var(--charcoal) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      animation: slideRight 0.9s ease 0.1s both;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 40px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 5vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 1.8rem;
+      animation: slideRight 0.9s ease 0.25s both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero h1 .line2 { display: block; }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--warm-mid);
+      max-width: 380px;
+      margin-bottom: 3rem;
+      animation: slideRight 0.9s ease 0.4s both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1.2rem; flex-wrap: wrap;
+      animation: slideRight 0.9s ease 0.55s both;
+    }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 1rem 2.2rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-dark:hover { background: var(--gold); color: var(--charcoal); }
+    .btn-dark svg { transition: transform 0.3s; }
+    .btn-dark:hover svg { transform: translateX(4px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      background: transparent;
+      color: var(--charcoal);
+      padding: 1rem 2.2rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(26,25,22,0.25);
+      cursor: pointer; transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-awards {
+      display: flex; gap: 2rem; margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      animation: slideRight 0.9s ease 0.7s both;
+    }
+    .award {
+      display: flex; flex-direction: column;
+    }
+    .award-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .award-label {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-lt);
+      margin-top: 0.3rem;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.2s ease 0.3s both;
+    }
+
+    .hero-img-wrap {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .hero-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    .hero-img-wrap:hover img { transform: scale(1); }
+
+    .hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(250,247,242,0.15) 0%, transparent 50%);
+    }
+
+    .hero-img-caption {
+      position: absolute; bottom: 3rem; left: 2.5rem;
+      background: var(--ivory);
+      padding: 1.5rem 2rem;
+      max-width: 260px;
+      border-left: 3px solid var(--gold);
+    }
+    .caption-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+    .caption-attr {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-bar {
+      background: var(--charcoal);
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: 2rem;
+      padding: 0 3rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-lt);
+    }
+    .marquee-item .dot {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%; flex-shrink: 0;
+    }
+    .marquee-item.gold { color: var(--gold2); }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SEARCH ── */
+    #search {
+      background: var(--cream2);
+      padding: 5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .search-top {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+    .search-top h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+    }
+    .search-top h2 em { font-style: italic; color: var(--gold); }
+
+    .search-tabs {
+      display: flex; gap: 0;
+      border: 1px solid rgba(26,25,22,0.15);
+    }
+    .tab {
+      padding: 0.6rem 1.8rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer; border: none;
+      background: transparent;
+      color: var(--warm-mid);
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+      border-right: 1px solid rgba(26,25,22,0.15);
+    }
+    .tab:last-child { border-right: none; }
+    .tab.active { background: var(--charcoal); color: var(--cream); }
+
+    .search-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr auto;
+      gap: 0;
+      background: var(--ivory);
+      border: 1px solid rgba(26,25,22,0.12);
+      overflow: hidden;
+    }
+
+    .sf {
+      padding: 1.3rem 1.5rem;
+      border-right: 1px solid rgba(26,25,22,0.08);
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .sf:last-child { border-right: none; }
+    .sf label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sf input, .sf select {
+      background: none; border: none; outline: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      width: 100%;
+    }
+    .sf select option { background: var(--ivory); }
+
+    .search-go {
+      background: var(--charcoal);
+      border: none;
+      padding: 0 2rem;
+      cursor: pointer;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: background 0.25s;
+      display: flex; align-items: center; gap: 0.6rem;
+      white-space: nowrap;
+    }
+    .search-go:hover { background: var(--gold); color: var(--charcoal); }
+
+    .search-filters {
+      display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .filter-chip {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; color: var(--warm-mid); cursor: pointer;
+    }
+    .filter-chip input[type=checkbox] { accent-color: var(--gold); }
+
+    /* ── LISTINGS ── */
+    #listings {
+      padding: 7rem 5rem;
+      background: var(--ivory);
+    }
+
+    .listings-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 4rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex; align-items: center; gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px; background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .link-arrow {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,25,22,0.25);
+      padding-bottom: 2px;
+      transition: all 0.25s;
+    }
+    .link-arrow:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Listings Bento Grid */
+    .listings-bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 1.5rem;
+    }
+
+    .lcard { position: relative; overflow: hidden; background: white; cursor: pointer; }
+    .lcard:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .lcard:nth-child(2) { grid-column: span 5; }
+    .lcard:nth-child(3) { grid-column: span 5; }
+    .lcard:nth-child(4) { grid-column: span 4; }
+    .lcard:nth-child(5) { grid-column: span 4; }
+    .lcard:nth-child(6) { grid-column: span 4; }
+
+    .lcard-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .lcard:nth-child(1) .lcard-img { aspect-ratio: 16/11; }
+    .lcard:hover .lcard-img { transform: scale(1.06); }
+
+    .lcard-status {
+      position: absolute; top: 1.2rem; left: 1.2rem;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .status-active { background: var(--charcoal); color: var(--cream); }
+    .status-new    { background: var(--gold); color: var(--charcoal); }
+    .status-sold   { background: var(--rust); color: white; }
+
+    .lcard-save {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      width: 34px; height: 34px;
+      background: rgba(250,247,242,0.9);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none;
+      transition: background 0.2s;
+    }
+    .lcard-save:hover { background: var(--gold); }
+    .lcard-save:hover svg { stroke: white; }
+
+    .lcard-body { padding: 1.5rem; }
+    .lcard-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .lcard:nth-child(1) .lcard-price { font-size: 2.2rem; }
+
+    .lcard-addr {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--warm-mid);
+      margin-bottom: 1rem;
+    }
+
+    .lcard-specs {
+      display: flex; gap: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .lspec {
+      font-size: 0.72rem; color: var(--warm-lt);
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .lspec strong { color: var(--charcoal); }
+
+    /* ── AGENT PROFILE ── */
+    #agent {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+
+    .agent-img-col {
+      position: relative; overflow: hidden;
+    }
+    .agent-img-col img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .agent-img-col::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--charcoal) 100%);
+    }
+
+    .agent-content {
+      padding: 7rem 5rem 7rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .agent-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex; align-items: center; gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .agent-eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--gold);
+    }
+
+    .agent-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .agent-title-text {
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 2rem;
+    }
+
+    .agent-bio {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.7);
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+    }
+
+    .agent-creds {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin-bottom: 3rem;
+    }
+    .cred {
+      padding: 1.3rem 1.5rem;
+      border: 1px solid rgba(184,151,90,0.2);
+      border-left: 3px solid var(--gold);
+    }
+    .cred-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 400;
+      color: var(--gold2); display: block;
+    }
+    .cred-label {
+      font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(245,240,232,0.5); margin-top: 0.3rem;
+    }
+
+    .agent-specialties {
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .specialty-tag {
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(184,151,90,0.3);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold2);
+    }
+
+    .agent-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 1rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-gold:hover { background: var(--gold2); }
+
+    .btn-cream-outline {
+      background: transparent;
+      color: var(--cream);
+      padding: 1rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,240,232,0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-cream-outline:hover { border-color: var(--gold); color: var(--gold2); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--cream2);
+      padding: 7rem 5rem;
+    }
+
+    .testimonials-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .testimonials-left { padding-top: 1rem; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .tcard {
+      background: var(--ivory);
+      padding: 2rem;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .tcard:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+    .tcard-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+    .tcard-stars {
+      display: flex; gap: 3px; margin-bottom: 1rem;
+    }
+    .star { color: var(--gold); font-size: 0.7rem; }
+
+    .tcard-footer { display: flex; align-items: center; gap: 1rem; }
+    .tcard-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+    }
+    .tcard-name {
+      font-size: 0.82rem; font-weight: 500; color: var(--charcoal);
+    }
+    .tcard-role {
+      font-size: 0.65rem; font-weight: 300;
+      color: var(--warm-lt); letter-spacing: 0.1em;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--ivory);
+      padding: 7rem 5rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .contact-left { }
+    .contact-left p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--warm-mid);
+      margin: 1.5rem 0 2.5rem;
+      max-width: 400px;
+    }
+
+    .contact-info-list {
+      display: flex; flex-direction: column; gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .ci {
+      display: flex; align-items: center; gap: 1.2rem;
+    }
+    .ci-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .ci-label {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--warm-lt); display: block; margin-bottom: 0.2rem;
+    }
+    .ci-value {
+      font-size: 0.88rem; font-weight: 400; color: var(--charcoal);
+    }
+
+    .availability-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(184,151,90,0.1);
+      border: 1px solid var(--line);
+      padding: 0.7rem 1.2rem;
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .avail-dot {
+      width: 7px; height: 7px; background: #5B8A4A;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.8); }
+    }
+
+    .contact-form-wrap {
+      background: var(--cream2);
+      padding: 3rem;
+      border: 1px solid var(--line);
+    }
+
+    .cf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .cf-sub {
+      font-size: 0.78rem; color: var(--warm-lt);
+      margin-bottom: 2rem; font-weight: 300;
+    }
+
+    .cf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .cf-full { grid-column: span 2; }
+
+    .fg {
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .fg label {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .fg input, .fg select, .fg textarea {
+      background: var(--ivory);
+      border: 1px solid rgba(26,25,22,0.12);
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 300;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.25s;
+      resize: none;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      border-color: var(--gold);
+    }
+    .fg select option { background: var(--ivory); }
+
+    .cf-submit {
+      margin-top: 1.5rem;
+      width: 100%;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none; cursor: pointer;
+      padding: 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      transition: background 0.3s;
+    }
+    .cf-submit:hover { background: var(--gold); color: var(--charcoal); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal2);
+      border-top: 1px solid rgba(184,151,90,0.15);
+      padding: 4rem 5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .ft-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem; color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .ft-tagline {
+      font-size: 0.62rem; font-weight: 300;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .ft-desc {
+      font-size: 0.82rem; font-weight: 300;
+      line-height: 1.75; color: rgba(245,240,232,0.45);
+      max-width: 280px;
+    }
+
+    .ft-col h5 {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .ft-col a {
+      font-size: 0.8rem; font-weight: 300;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none; transition: color 0.25s;
+    }
+    .ft-col a:hover { color: var(--gold2); }
+
+    .ft-bottom {
+      grid-column: span 4;
+      border-top: 1px solid rgba(184,151,90,0.1);
+      padding-top: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ft-copy { font-size: 0.72rem; font-weight: 300; color: rgba(245,240,232,0.3); }
+
+    .socials { display: flex; gap: 0.8rem; }
+    .soc {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(184,151,90,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(245,240,232,0.4);
+      text-decoration: none; font-size: 0.72rem; font-weight: 500;
+      transition: all 0.25s;
+    }
+    .soc:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      nav { padding: 1.5rem 2.5rem; }
+      nav ul { gap: 2rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vh; }
+      .hero-img-wrap { position: relative; height: 100%; }
+      #agent { grid-template-columns: 1fr; }
+      .agent-img-col { height: 50vh; }
+      section { padding: 5rem 2.5rem; }
+      #search { padding: 4rem 2.5rem; }
+      #listings { padding: 5rem 2.5rem; }
+      footer { grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 3rem 2.5rem; }
+      .ft-bottom { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .lcard:nth-child(1) { grid-column: span 12; }
+      .lcard:nth-child(n+2) { grid-column: span 12; }
+      .search-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .testimonials-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cf-grid { grid-template-columns: 1fr; }
+      .cf-full { grid-column: span 1; }
+      footer { grid-template-columns: 1fr; }
+      .ft-bottom { grid-column: span 1; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div style="font-weight:bold;">Harbir Gill</div>
-  <div>
-    <a href="buyers.html">Buyers</a>
-    <a href="investors.html">Investors</a>
-    <a href="contact.html">Contact</a>
+  <!-- Custom cursor -->
+  <div class="cursor"><div class="cursor-dot"></div></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-logo">Victoria Hale
+      <span>Luxury Real Estate · Beverly Hills</span>
+    </a>
+    <ul>
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#agent">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact" class="nav-btn">Schedule a Call</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Beverly Hills · Bel Air · Malibu</div>
+      <h1>
+        Defining <em>Luxury</em>
+        <span class="line2">One Estate at a Time</span>
+      </h1>
+      <p class="hero-sub">I bring two decades of market knowledge and an uncompromising eye for detail to every transaction — from serene hillside retreats to oceanfront estates.</p>
+      <div class="hero-actions">
+        <a href="#listings" class="btn-dark">
+          View Listings
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#agent" class="btn-outline">Meet Victoria</a>
+      </div>
+      <div class="hero-awards">
+        <div class="award"><span class="award-num">$1.2B</span><span class="award-label">Sales Volume</span></div>
+        <div class="award"><span class="award-num">340+</span><span class="award-label">Homes Sold</span></div>
+        <div class="award"><span class="award-num">#1</span><span class="award-label">BH Agent 2024</span></div>
+        <div class="award"><span class="award-num">22yrs</span><span class="award-label">Experience</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85" alt="Luxury estate"/>
+        <div class="hero-img-overlay"></div>
+      </div>
+      <div class="hero-img-caption">
+        <div class="caption-quote">"Victoria found us our dream home — effortlessly, elegantly."</div>
+        <div class="caption-attr">— The Harrington Family, 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span class="marquee-item gold">Beverly Hills<span class="dot"></span></span>
+      <span class="marquee-item">Bel Air<span class="dot"></span></span>
+      <span class="marquee-item gold">Malibu<span class="dot"></span></span>
+      <span class="marquee-item">Holmby Hills<span class="dot"></span></span>
+      <span class="marquee-item gold">Trousdale Estates<span class="dot"></span></span>
+      <span class="marquee-item">Sunset Strip<span class="dot"></span></span>
+      <span class="marquee-item gold">Pacific Palisades<span class="dot"></span></span>
+      <span class="marquee-item">Santa Monica<span class="dot"></span></span>
+      <span class="marquee-item gold">Beverly Hills<span class="dot"></span></span>
+      <span class="marquee-item">Bel Air<span class="dot"></span></span>
+      <span class="marquee-item gold">Malibu<span class="dot"></span></span>
+      <span class="marquee-item">Holmby Hills<span class="dot"></span></span>
+      <span class="marquee-item gold">Trousdale Estates<span class="dot"></span></span>
+      <span class="marquee-item">Sunset Strip<span class="dot"></span></span>
+      <span class="marquee-item gold">Pacific Palisades<span class="dot"></span></span>
+      <span class="marquee-item">Santa Monica<span class="dot"></span></span>
+    </div>
   </div>
-</nav>
 
-<div class="hero">
-  <div>
-    <h1>Strategic Real Estate Decisions</h1>
-    <p>
-      Helping first-time buyers avoid costly mistakes and guiding investors
-      in flip, power of sale, and positive cashflow opportunities.
-    </p>
-    <a class="button" href="contact.html">Book a Consultation</a>
+  <!-- ── SEARCH ── -->
+  <div id="search">
+    <div class="search-top">
+      <div>
+        <div class="section-eyebrow">Property Search</div>
+        <h2 class="section-title">Find Your <em>Perfect Home</em></h2>
+      </div>
+      <div class="search-tabs">
+        <button class="tab active" onclick="setTab(this)">Buy</button>
+        <button class="tab" onclick="setTab(this)">Rent</button>
+        <button class="tab" onclick="setTab(this)">Sold</button>
+      </div>
+    </div>
+    <div class="search-grid">
+      <div class="sf">
+        <label>Location</label>
+        <input type="text" placeholder="Neighborhood, city, ZIP…"/>
+      </div>
+      <div class="sf">
+        <label>Property Type</label>
+        <select>
+          <option>All Types</option>
+          <option>Single Family</option>
+          <option>Condo / Penthouse</option>
+          <option>Estate</option>
+          <option>Villa</option>
+          <option>Townhouse</option>
+        </select>
+      </div>
+      <div class="sf">
+        <label>Price Range</label>
+        <select>
+          <option>Any Price</option>
+          <option>$1M – $3M</option>
+          <option>$3M – $7M</option>
+          <option>$7M – $15M</option>
+          <option>$15M+</option>
+        </select>
+      </div>
+      <div class="sf">
+        <label>Bedrooms</label>
+        <select>
+          <option>Any</option>
+          <option>2+</option>
+          <option>3+</option>
+          <option>4+</option>
+          <option>5+</option>
+          <option>6+</option>
+        </select>
+      </div>
+      <button class="search-go">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Search
+      </button>
+    </div>
+    <div class="search-filters">
+      <label class="filter-chip"><input type="checkbox"/> Pool</label>
+      <label class="filter-chip"><input type="checkbox"/> Ocean View</label>
+      <label class="filter-chip"><input type="checkbox"/> Guest House</label>
+      <label class="filter-chip"><input type="checkbox"/> Home Theater</label>
+      <label class="filter-chip"><input type="checkbox"/> Wine Cellar</label>
+      <label class="filter-chip"><input type="checkbox"/> Smart Home</label>
+      <label class="filter-chip"><input type="checkbox"/> Gated Community</label>
+    </div>
   </div>
-  <h2>Professional Background</h2>
-  <p>
-    I have over 5 years of experience in real estate, serving buyers and investors
-    across Brampton and the Greater Toronto Area.
-  </p>
 
-  <p>
-    I am affiliated with <strong style="color:var(--text);">RE/MAX Gold Realty Inc., Brokerage</strong>,
-    one of the recognized real estate brokerages in the region.
-  </p>
+  <!-- ── LISTINGS ── -->
+  <section id="listings">
+    <div class="listings-head">
+      <div>
+        <div class="section-eyebrow">Portfolio</div>
+        <div class="section-title">Current <em>Listings</em></div>
+      </div>
+      <a href="#" class="link-arrow">
+        All Properties
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
 
-  <div>
-    <span class="pill">5+ Years Experience</span>
-    <span class="pill">RE/MAX Gold Realty Inc.</span>
-    <span class="pill">First-Time Buyers</span>
-    <span class="pill">Investment Properties</span>
-    <span class="pill">Offer Strategy</span>
-    <span class="pill">Market Analysis</span>
-  </div>
+    <div class="listings-bento">
+      <!-- Hero card -->
+      <div class="lcard">
+        <span class="lcard-status status-new">Just Listed</span>
+        <button class="lcard-save" title="Save">
+          <svg width="16" height="16" fill="none" stroke="#1A1916" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <img class="lcard-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1000&q=80" alt="Estate"/>
+        <div class="lcard-body">
+          <div class="lcard-price">$14,500,000</div>
+          <div class="lcard-addr">1280 Roscomare Road, Bel Air, CA 90077</div>
+          <div class="lcard-specs">
+            <span class="lspec"><strong>7</strong>&nbsp;Bed</span>
+            <span class="lspec"><strong>9</strong>&nbsp;Bath</span>
+            <span class="lspec"><strong>11,200</strong>&nbsp;sq ft</span>
+            <span class="lspec"><strong>1.4</strong>&nbsp;Acres</span>
+          </div>
+        </div>
+      </div>
 
-  <div class="note">
-    My focus is structured decision-making, risk evaluation, and disciplined execution
-    for both residential buyers and investors.
-  </div>
-</div>
-</div>
-<div class="card">
-  
+      <div class="lcard">
+        <span class="lcard-status status-active">Active</span>
+        <img class="lcard-img" src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=700&q=80" alt="Home"/>
+        <div class="lcard-body">
+          <div class="lcard-price">$6,200,000</div>
+          <div class="lcard-addr">420 Amalfi Drive, Pacific Palisades</div>
+          <div class="lcard-specs">
+            <span class="lspec"><strong>5</strong>&nbsp;Bed</span>
+            <span class="lspec"><strong>6</strong>&nbsp;Bath</span>
+            <span class="lspec"><strong>5,800</strong>&nbsp;sq ft</span>
+          </div>
+        </div>
+      </div>
 
-<footer>
-© 2026 Harbir Gill | Brampton & GTA
-</footer>
+      <div class="lcard">
+        <span class="lcard-status status-active">Active</span>
+        <img class="lcard-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" alt="Home"/>
+        <div class="lcard-body">
+          <div class="lcard-price">$9,850,000</div>
+          <div class="lcard-addr">712 Hillcrest Rd, Beverly Hills, CA</div>
+          <div class="lcard-specs">
+            <span class="lspec"><strong>6</strong>&nbsp;Bed</span>
+            <span class="lspec"><strong>8</strong>&nbsp;Bath</span>
+            <span class="lspec"><strong>8,100</strong>&nbsp;sq ft</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="lcard">
+        <span class="lcard-status status-sold">Sold</span>
+        <img class="lcard-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Home"/>
+        <div class="lcard-body">
+          <div class="lcard-price">$4,400,000</div>
+          <div class="lcard-addr">88 Rexford Dr, Beverly Hills</div>
+          <div class="lcard-specs">
+            <span class="lspec"><strong>4</strong>&nbsp;Bed</span>
+            <span class="lspec"><strong>5</strong>&nbsp;Bath</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lcard">
+        <img class="lcard-img" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=80" alt="Home"/>
+        <div class="lcard-body">
+          <div class="lcard-price">$3,750,000</div>
+          <div class="lcard-addr">200 N Sycamore Ave, LA</div>
+          <div class="lcard-specs">
+            <span class="lspec"><strong>4</strong>&nbsp;Bed</span>
+            <span class="lspec"><strong>4</strong>&nbsp;Bath</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lcard">
+        <span class="lcard-status status-new">Price Drop</span>
+        <img class="lcard-img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Home"/>
+        <div class="lcard-body">
+          <div class="lcard-price">$7,100,000</div>
+          <div class="lcard-addr">1012 Crest Way, Malibu, CA</div>
+          <div class="lcard-specs">
+            <span class="lspec"><strong>5</strong>&nbsp;Bed</span>
+            <span class="lspec"><strong>7</strong>&nbsp;Bath</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AGENT PROFILE ── -->
+  <section id="agent" style="padding:0">
+    <div class="agent-img-col">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Victoria Hale"/>
+    </div>
+    <div class="agent-content">
+      <div class="agent-eyebrow">Your Agent</div>
+      <h2 class="agent-name">Victoria<br>Hale</h2>
+      <div class="agent-title-text">Senior Luxury Advisor · DRE #01987654</div>
+
+      <p class="agent-bio">With over two decades of experience in the most coveted zip codes in Southern California, Victoria has built her reputation on discretion, precision, and an intimate understanding of what luxury truly means to her clients. She doesn't just sell homes — she crafts life-changing transitions.</p>
+
+      <div class="agent-creds">
+        <div class="cred"><span class="cred-num">$1.2B+</span><span class="cred-label">Career Volume</span></div>
+        <div class="cred"><span class="cred-num">340+</span><span class="cred-label">Homes Closed</span></div>
+        <div class="cred"><span class="cred-num">98%</span><span class="cred-label">List-to-Sale Ratio</span></div>
+        <div class="cred"><span class="cred-num">22 yrs</span><span class="cred-label">In the Market</span></div>
+      </div>
+
+      <div class="agent-specialties">
+        <span class="specialty-tag">Estates</span>
+        <span class="specialty-tag">Off-Market</span>
+        <span class="specialty-tag">New Development</span>
+        <span class="specialty-tag">Investment</span>
+        <span class="specialty-tag">Relocation</span>
+      </div>
+
+      <div class="agent-actions">
+        <a href="#contact" class="btn-gold">Work With Victoria</a>
+        <a href="tel:+13105550192" class="btn-cream-outline">+1 (310) 555-0192</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section id="testimonials">
+    <div class="testimonials-layout">
+      <div class="testimonials-left">
+        <div class="section-eyebrow">Testimonials</div>
+        <div class="section-title">Words From<br><em>Happy Clients</em></div>
+        <p style="font-size:0.9rem;font-weight:300;color:var(--warm-mid);line-height:1.75;margin-top:1.5rem;margin-bottom:2rem;">Over 340 families have trusted Victoria to guide them through the most significant purchases of their lives.</p>
+        <a href="#contact" class="btn-dark" style="display:inline-flex">
+          Start Your Journey
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="testi-grid">
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"Victoria sold our Bel Air home in four days — over asking. Her network is extraordinary."</div>
+          <div class="tcard-footer">
+            <img class="tcard-avatar" src="https://i.pravatar.cc/80?img=3" alt=""/>
+            <div><div class="tcard-name">James & Claire Whitmore</div><div class="tcard-role">Seller — Bel Air</div></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"We were relocating from New York and Victoria made us feel completely taken care of from day one."</div>
+          <div class="tcard-footer">
+            <img class="tcard-avatar" src="https://i.pravatar.cc/80?img=5" alt=""/>
+            <div><div class="tcard-name">Daniel & Priya Sharma</div><div class="tcard-role">Buyer — Pacific Palisades</div></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"Victoria negotiated $600K off the list price on our Malibu home. A truly skilled professional."</div>
+          <div class="tcard-footer">
+            <img class="tcard-avatar" src="https://i.pravatar.cc/80?img=9" alt=""/>
+            <div><div class="tcard-name">Marcus DeLeon</div><div class="tcard-role">Buyer — Malibu</div></div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-quote">"The level of discretion and white-glove service Victoria provides is unmatched in this market."</div>
+          <div class="tcard-footer">
+            <img class="tcard-avatar" src="https://i.pravatar.cc/80?img=12" alt=""/>
+            <div><div class="tcard-name">Elena Voss</div><div class="tcard-role">Seller — Beverly Hills</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <div class="section-eyebrow">Get In Touch</div>
+        <div class="section-title">Let's <em>Connect</em></div>
+        <p>Whether you're buying, selling, or simply exploring your options — Victoria is available for a private, no-pressure consultation.</p>
+        <div class="availability-badge">
+          <span class="avail-dot"></span>
+          Currently Accepting New Clients
+        </div>
+        <div class="contact-info-list" style="margin-top:2rem">
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div><span class="ci-label">Office</span><span class="ci-value">9100 Wilshire Blvd, Ste 1000, Beverly Hills, CA 90210</span></div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+            </div>
+            <div><span class="ci-label">Direct Line</span><span class="ci-value">+1 (310) 555-0192</span></div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div><span class="ci-label">Email</span><span class="ci-value">victoria@victoriahale.com</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <div class="cf-title">Send a Message</div>
+        <div class="cf-sub">I'll respond within 24 hours, personally.</div>
+        <div class="cf-grid">
+          <div class="fg">
+            <label>First Name</label>
+            <input type="text" placeholder="Alexandra"/>
+          </div>
+          <div class="fg">
+            <label>Last Name</label>
+            <input type="text" placeholder="Sterling"/>
+          </div>
+          <div class="fg">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com"/>
+          </div>
+          <div class="fg">
+            <label>Phone</label>
+            <input type="tel" placeholder="+1 (000) 000-0000"/>
+          </div>
+          <div class="fg cf-full">
+            <label>I'm Looking To</label>
+            <select>
+              <option>Buy a Property</option>
+              <option>Sell My Home</option>
+              <option>Get a Market Valuation</option>
+              <option>Discuss Investment Options</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg cf-full">
+            <label>Budget / Price Range</label>
+            <select>
+              <option>$1M – $3M</option>
+              <option>$3M – $7M</option>
+              <option>$7M – $15M</option>
+              <option>$15M – $30M</option>
+              <option>$30M+</option>
+            </select>
+          </div>
+          <div class="fg cf-full">
+            <label>Message</label>
+            <textarea rows="4" placeholder="Tell me about your ideal property or situation…"></textarea>
+          </div>
+        </div>
+        <button class="cf-submit" onclick="this.textContent='✓ Message Sent — Victoria will be in touch shortly.'; this.style.background='#5B8A4A'">
+          Send Message
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div>
+      <div class="ft-logo">Victoria Hale</div>
+      <div class="ft-tagline">Luxury Real Estate · Beverly Hills</div>
+      <p class="ft-desc">Serving the most discerning buyers and sellers in Southern California's finest communities since 2003.</p>
+    </div>
+    <div class="ft-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Buyer Representation</a></li>
+        <li><a href="#">Seller Representation</a></li>
+        <li><a href="#">Off-Market Listings</a></li>
+        <li><a href="#">Property Valuation</a></li>
+        <li><a href="#">Investment Advisory</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Areas</h5>
+      <ul>
+        <li><a href="#">Beverly Hills</a></li>
+        <li><a href="#">Bel Air</a></li>
+        <li><a href="#">Malibu</a></li>
+        <li><a href="#">Pacific Palisades</a></li>
+        <li><a href="#">Holmby Hills</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Victoria</a></li>
+        <li><a href="#">Press & Awards</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Fair Housing Notice</a></li>
+      </ul>
+    </div>
+    <div class="ft-bottom">
+      <p>© 2026 Victoria Hale Real Estate. CA DRE #01987654. All Rights Reserved.</p>
+      <div class="socials">
+        <a href="#" class="soc">in</a>
+        <a href="#" class="soc">ig</a>
+        <a href="#" class="soc">yt</a>
+        <a href="#" class="soc">fb</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.getElementById('ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    });
+
+    (function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+
+    document.querySelectorAll('a,button,input,select,textarea,.lcard').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '54px'; ring.style.height = '54px';
+        ring.style.borderColor = 'var(--gold)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '36px'; ring.style.height = '36px';
+        ring.style.borderColor = 'var(--gold)';
+      });
+    });
+
+    // Search tabs
+    function setTab(el) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Save button toggle
+    document.querySelectorAll('.lcard-save').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const svg = btn.querySelector('svg');
+        const filled = svg.getAttribute('fill') === '#B8975A';
+        svg.setAttribute('fill', filled ? 'none' : '#B8975A');
+        svg.setAttribute('stroke', filled ? '#1A1916' : '#B8975A');
+      });
+    });
+  </script>
 </body>
-</html><a href="closing-cost-estimator.html">Closing Cost Estimator</a>
+</html>
