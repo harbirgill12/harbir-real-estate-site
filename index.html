@@ -3,1857 +3,1138 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Harbir Gill — Realtor at RE/MAX Gold Realty Inc., Brokerage. Structured real estate advisory serving Brampton, GTA, Mississauga, Caledon and Ontario. 5+ years of disciplined market experience."/>
-  <title>Harbir Gill | Real Estate — RE/MAX Gold Realty Inc.</title>
+  <meta name="description" content="Harbir Gill — Realtor at RE/MAX Gold Realty Inc., Brokerage. Structured real estate advisory across Ontario. Buyers, Sellers, Investors, Power of Sale. Call 647-546-1300."/>
+  <title>Harbir Gill | Realtor — RE/MAX Gold Realty Inc., Brokerage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    /* ═══════════════════════════════
-       DESIGN TOKENS
-    ═══════════════════════════════ */
-    :root {
-      --bg:        #0E0E0E;
-      --bg2:       #131313;
-      --bg3:       #181818;
-      --bg4:       #1D1D1D;
-      --border:    rgba(191,163,100,0.13);
-      --border2:   rgba(191,163,100,0.22);
-      --gold:      #BFA364;
-      --gold2:     #D4BC85;
-      --gold-dim:  rgba(191,163,100,0.15);
-      --text:      #E8E3D9;
-      --text2:     #A09A8E;
-      --text3:     #6A6560;
-      --white:     #F4F0E8;
-      --nav-h:     76px;
+    /* ══════════════════════════════
+       TOKENS
+    ══════════════════════════════ */
+    :root{
+      --bg:      #0C0C0C;
+      --bg2:     #111111;
+      --bg3:     #171717;
+      --bg4:     #1E1E1E;
+      --gold:    #C9A84C;
+      --gold2:   #E2C97E;
+      --gold-dim:rgba(201,168,76,0.12);
+      --border:  rgba(201,168,76,0.14);
+      --border2: rgba(201,168,76,0.26);
+      --text:    #EDE8DE;
+      --text2:   #A09A8E;
+      --text3:   #5E5952;
+      --white:   #F5F1E8;
+      --nav-h:   72px;
+      --red:     #C0392B;
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    ul{list-style:none}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ══════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════ */
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .rd1{transition-delay:.08s}.rd2{transition-delay:.18s}.rd3{transition-delay:.28s}
+    .rd4{transition-delay:.38s}.rd5{transition-delay:.48s}
 
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
+    /* ══════════════════════════════
+       SHARED UTILITIES
+    ══════════════════════════════ */
+    .section{padding:7rem 5rem}
+    .section-dark{background:var(--bg2)}
+    .section-mid{background:var(--bg3)}
+    .container{max-width:1200px;margin:0 auto}
+    .eyebrow{display:flex;align-items:center;gap:.8rem;font-size:.6rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+    .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);flex-shrink:0}
+    .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;color:var(--white);margin-bottom:1.2rem}
+    .sec-title em{font-style:italic;color:var(--gold)}
+    .sec-body{font-size:.95rem;font-weight:300;line-height:1.82;color:var(--text2);max-width:580px}
+    .divider{width:36px;height:1px;background:var(--gold);opacity:.5;margin:1.8rem 0}
 
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:.6rem;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:none;transition:all .28s;padding:.95rem 2.2rem}
+    .btn-gold{background:var(--gold);color:var(--bg);border:1px solid var(--gold)}
+    .btn-gold:hover{background:transparent;color:var(--gold)}
+    .btn-ghost{background:transparent;color:var(--text2);border:1px solid rgba(255,255,255,.15)}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .btn-outline-gold{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+    .btn-outline-gold:hover{background:var(--gold);color:var(--bg)}
 
-    img { display: block; max-width: 100%; }
-    a   { text-decoration: none; color: inherit; }
-
-    /* ═══════════════════════════════
-       SCROLL FADE-IN
-    ═══════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.32s; }
-    .reveal-delay-4 { transition-delay: 0.44s; }
-    .reveal-delay-5 { transition-delay: 0.56s; }
-
-    /* ═══════════════════════════════
+    /* ══════════════════════════════
        NAV
-    ═══════════════════════════════ */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 900;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5rem;
-      background: rgba(14,14,14,0);
-      border-bottom: 1px solid transparent;
-      transition: background 0.4s, border-color 0.4s;
-    }
-    #nav.scrolled {
-      background: rgba(14,14,14,0.96);
-      border-bottom-color: var(--border);
-      backdrop-filter: blur(14px);
-    }
+    ══════════════════════════════ */
+    #mainNav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:transparent;border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+    #mainNav.scrolled{background:rgba(12,12,12,.97);border-bottom-color:var(--border);backdrop-filter:blur(16px)}
+    .nav-brand{display:flex;flex-direction:column;line-height:1.1;flex-shrink:0}
+    .nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;letter-spacing:.06em;color:var(--white)}
+    .nav-brand-sub{font-size:.52rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+    .nav-links{display:flex;gap:0;list-style:none;align-items:center}
+    .nav-links a{font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);padding:.4rem .85rem;transition:color .22s;white-space:nowrap;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:0;left:.85rem;right:100%;height:1px;background:var(--gold);transition:right .28s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-links a:hover::after{right:.85rem}
+    .nav-cta-wrap{display:flex;gap:.8rem;align-items:center;flex-shrink:0}
+    .nav-phone{font-size:.68rem;font-weight:500;letter-spacing:.08em;color:var(--text2);transition:color .2s}
+    .nav-phone:hover{color:var(--gold)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);transition:.2s}
+    .hamburger:hover span{background:var(--gold)}
+    .mobile-nav{display:none;position:fixed;inset:0;top:var(--nav-h);background:rgba(12,12,12,.98);z-index:800;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--text2);transition:color .2s}
+    .mobile-nav a:hover{color:var(--gold)}
 
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-    .nav-logo-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--white);
-    }
-    .nav-logo-sub {
-      font-size: 0.58rem;
-      font-weight: 400;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2.8rem;
-      align-items: center;
-    }
-    .nav-links a {
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text2);
-      transition: color 0.25s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0; right: 100%;
-      height: 1px;
-      background: var(--gold);
-      transition: right 0.3s ease;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-links a:hover::after { right: 0; }
-
-    .nav-cta {
-      border: 1px solid var(--gold) !important;
-      color: var(--gold) !important;
-      padding: 0.55rem 1.5rem;
-      font-size: 0.68rem !important;
-      letter-spacing: 0.18em !important;
-      transition: background 0.25s, color 0.25s !important;
-    }
-    .nav-cta:hover {
-      background: var(--gold) !important;
-      color: var(--bg) !important;
-    }
-    .nav-cta::after { display: none !important; }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px; height: 1.5px;
-      background: var(--text2);
-      transition: background 0.2s;
-    }
-    .nav-hamburger:hover span { background: var(--gold); }
-
-    /* ═══════════════════════════════
+    /* ══════════════════════════════
        HERO
-    ═══════════════════════════════ */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: calc(var(--nav-h) + 6rem) 5rem 6rem;
-      position: relative;
-      overflow: hidden;
-    }
+    ══════════════════════════════ */
+    #home{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+    .hero-left{display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 5rem) 5rem 5rem;position:relative;z-index:2}
+    .hero-tag{display:flex;align-items:center;gap:.8rem;font-size:.6rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:2.2rem;opacity:0;animation:fadeUp .8s ease .25s forwards}
+    .hero-tag::before{content:'';width:32px;height:1px;background:var(--gold)}
+    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5.5rem);font-weight:300;line-height:1.07;letter-spacing:-.015em;color:var(--white);margin-bottom:1.6rem;opacity:0;animation:fadeUp .9s ease .4s forwards}
+    .hero-h1 em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:1rem;font-weight:300;line-height:1.8;color:var(--text2);max-width:500px;margin-bottom:3rem;opacity:0;animation:fadeUp .9s ease .55s forwards}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s ease .7s forwards}
+    .hero-right{position:relative;overflow:hidden;background:var(--bg3)}
+    .hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 30%);z-index:1}
+    .hero-img-area{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+    .hero-img-placeholder{width:100%;height:100%;object-fit:cover;object-position:center top}
+    .hero-img-msg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;padding:2rem;border:1px dashed var(--border2);background:rgba(12,12,12,.7)}
+    .hero-img-msg p{font-size:.72rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);line-height:1.8}
+    .hero-img-msg span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--gold);display:block;margin-bottom:.5rem}
+    .hero-bar{grid-column:span 2;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);background:rgba(12,12,12,.6);backdrop-filter:blur(10px);opacity:0;animation:fadeUp .8s ease .9s forwards}
+    .hbi{padding:1.5rem 5rem;border-right:1px solid var(--border);display:flex;align-items:center;gap:1.1rem}
+    .hbi:last-child{border-right:none}
+    .hbi-ico{width:38px;height:38px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+    .hbi-lbl{font-size:.55rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:3px}
+    .hbi-val{font-size:.82rem;font-weight:400;color:var(--text2)}
 
-    /* Geometric background texture */
-    #home::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(191,163,100,0.04) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(191,163,100,0.03) 0%, transparent 60%);
-    }
+    /* ══════════════════════════════
+       BUYERS
+    ══════════════════════════════ */
+    #buyers .buyers-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .step-list{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+    .step{display:flex;gap:1.4rem;padding:1.5rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+    .step:first-child{border-top:1px solid var(--border)}
+    .step-n{font-family:'Cormorant Garamond',serif;font-size:.8rem;color:var(--gold);flex-shrink:0;padding-top:.1rem;width:26px}
+    .step-title{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:.35rem}
+    .step-desc{font-size:.85rem;font-weight:300;color:var(--text2);line-height:1.65}
+    .info-card{background:var(--bg3);border:1px solid var(--border);border-left:2px solid var(--gold);padding:2.5rem;margin-top:2rem}
+    .ic-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--white);margin-bottom:1rem}
+    .ic-list{display:flex;flex-direction:column;gap:.75rem}
+    .ic-list li{font-size:.85rem;font-weight:300;color:var(--text2);padding-left:1.2rem;position:relative;line-height:1.55}
+    .ic-list li::before{content:'';position:absolute;left:0;top:.65em;width:6px;height:1px;background:var(--gold)}
 
-    /* Fine grid lines */
-    #home::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(191,163,100,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(191,163,100,0.03) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.6) 70%, transparent 100%);
-    }
+    /* ══════════════════════════════
+       SELLERS
+    ══════════════════════════════ */
+    #sellers .sellers-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .process-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2rem}
+    .pc{background:var(--bg2);padding:1.8rem 2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:background .25s}
+    .pc:hover{background:var(--bg4)}
+    .pc-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--gold);opacity:.3;flex-shrink:0;line-height:1}
+    .pc-title{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:.4rem}
+    .pc-desc{font-size:.85rem;font-weight:300;color:var(--text2);line-height:1.65}
+    .eval-box{background:var(--bg4);border:1px solid var(--border);padding:3rem;margin-top:2rem;position:relative}
+    .eval-box::before{content:'FREE';position:absolute;top:1.5rem;right:1.5rem;font-size:.55rem;font-weight:700;letter-spacing:.25em;background:var(--gold);color:var(--bg);padding:.3rem .7rem}
+    .eval-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--white);margin-bottom:.8rem}
+    .eval-desc{font-size:.88rem;font-weight:300;color:var(--text2);line-height:1.75;margin-bottom:1.8rem}
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-    }
+    /* ══════════════════════════════
+       INVESTORS
+    ══════════════════════════════ */
+    #investors .inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);margin-top:4rem}
+    .inv-card{background:var(--bg2);padding:2.8rem 2.2rem;position:relative;overflow:hidden;transition:background .3s}
+    .inv-card:hover{background:var(--bg3)}
+    .inv-card::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:2px;background:var(--gold);transition:right .4s ease}
+    .inv-card:hover::after{right:0}
+    .inv-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);opacity:.12;line-height:1;margin-bottom:1.2rem}
+    .inv-icon{width:42px;height:42px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:1.6rem}
+    .inv-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--white);margin-bottom:.4rem}
+    .inv-sub{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+    .inv-list{display:flex;flex-direction:column;gap:.7rem}
+    .inv-list li{font-size:.83rem;font-weight:300;color:var(--text2);padding-left:1.2rem;position:relative;line-height:1.5}
+    .inv-list li::before{content:'';position:absolute;left:0;top:.6em;width:5px;height:1px;background:var(--gold)}
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.9rem;
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.3s forwards;
-    }
-    .hero-tag::before {
-      content: '';
-      width: 36px; height: 1px;
-      background: var(--gold);
-    }
+    /* ══════════════════════════════
+       POWER OF SALE
+    ══════════════════════════════ */
+    #powerOfSale .pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .pos-explain{background:var(--bg3);border:1px solid var(--border);padding:2.5rem;margin-top:2rem}
+    .pos-explain h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--white);margin-bottom:.8rem}
+    .pos-explain p{font-size:.88rem;font-weight:300;color:var(--text2);line-height:1.78;margin-bottom:1rem}
+    .pos-explain p:last-child{margin-bottom:0}
+    .pos-steps{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+    .pos-step{padding:1.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:1.2rem}
+    .pos-step:first-child{border-top:1px solid var(--border)}
+    .ps-dot{width:8px;height:8px;border:1px solid var(--gold);flex-shrink:0;margin-top:.55rem;transform:rotate(45deg)}
+    .ps-title{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:.35rem}
+    .ps-desc{font-size:.84rem;font-weight:300;color:var(--text2);line-height:1.65}
+    .alert-box{background:var(--bg4);border:1px solid var(--border2);padding:2.5rem;margin-top:2rem;text-align:center}
+    .alert-box h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.6rem}
+    .alert-box p{font-size:.85rem;font-weight:300;color:var(--text2);margin-bottom:1.5rem}
 
-    .hero-h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 6vw, 6rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -0.01em;
-      color: var(--white);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.5s forwards;
-    }
-    .hero-h1 em {
-      font-style: italic;
-      color: var(--gold);
-      font-weight: 300;
-    }
+    /* ══════════════════════════════
+       DEALS
+    ══════════════════════════════ */
+    #deals .deals-inner{text-align:center;max-width:700px;margin:0 auto 3.5rem}
+    .deals-notify{background:var(--bg3);border:1px solid var(--border);padding:3rem;text-align:center;margin-top:2rem;position:relative;overflow:hidden}
+    .deals-notify::before{content:'DEALS OF THE MONTH';position:absolute;top:1.2rem;left:50%;transform:translateX(-50%);font-size:.52rem;font-weight:700;letter-spacing:.3em;color:var(--gold);white-space:nowrap}
+    .deals-notify h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--white);margin-top:2rem;margin-bottom:.8rem}
+    .deals-notify p{font-size:.9rem;font-weight:300;color:var(--text2);max-width:520px;margin:0 auto 2rem;line-height:1.75}
+    .deals-types{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem}
+    .dt{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+    .dt-icon{width:44px;height:44px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+    .dt-label{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text3)}
 
-    .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--text2);
-      max-width: 560px;
-      margin-bottom: 3.5rem;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.7s forwards;
-    }
+    /* ══════════════════════════════
+       MARKET WATCH
+    ══════════════════════════════ */
+    #marketWatch .mw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--border);margin-top:3.5rem}
+    .mw-card{background:var(--bg2);padding:2.5rem;transition:background .25s}
+    .mw-card:hover{background:var(--bg3)}
+    .mw-tag{font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:block}
+    .mw-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--white);margin-bottom:.8rem}
+    .mw-body{font-size:.85rem;font-weight:300;color:var(--text2);line-height:1.72}
+    .mw-note{font-size:.72rem;font-weight:300;color:var(--text3);margin-top:1rem;font-style:italic}
+    .mw-disclaimer{font-size:.72rem;font-weight:300;color:var(--text3);line-height:1.7;border-top:1px solid var(--border);padding-top:2rem;margin-top:3rem;max-width:700px}
 
-    .hero-actions {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.9s forwards;
-    }
+    /* ══════════════════════════════
+       LIVE LISTINGS
+    ══════════════════════════════ */
+    #listings .listing-placeholder{border:1px dashed var(--border2);padding:4rem;text-align:center;background:var(--bg3);margin-top:3rem}
+    .lp-icon{color:var(--gold);opacity:.25;margin:0 auto 1.2rem}
+    .lp-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--text2);margin-bottom:.6rem}
+    .lp-code{font-family:monospace;font-size:.7rem;color:var(--text3);background:var(--bg2);padding:1.5rem 2rem;display:inline-block;margin-top:1rem;border:1px solid var(--border);text-align:left;line-height:1.9}
 
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--bg);
-      padding: 1rem 2.4rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border: 1px solid var(--gold);
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--gold);
-    }
+    /* ══════════════════════════════
+       CALCULATOR
+    ══════════════════════════════ */
+    #calculator .calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .calc-form{display:flex;flex-direction:column;gap:1.3rem;margin-top:2.5rem}
+    .fld{display:flex;flex-direction:column;gap:.45rem}
+    .fld label{font-size:.58rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+    .fld input,.fld select{background:var(--bg3);border:1px solid var(--border);border-bottom:1px solid var(--border2);padding:.9rem 1rem;font-family:'Jost',sans-serif;font-size:.92rem;font-weight:300;color:var(--text);outline:none;transition:border-color .25s;-webkit-appearance:none}
+    .fld input:focus,.fld select:focus{border-color:var(--gold)}
+    .fld input::placeholder{color:var(--text3)}
+    .fld select option{background:var(--bg3)}
+    .ip{position:relative}.ip span{position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:.85rem;color:var(--text3);pointer-events:none}.ip input{padding-left:1.8rem}
+    .is{position:relative}.is span{position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:.75rem;color:var(--text3);pointer-events:none}.is input{padding-right:2rem}
+    .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    .calc-btn{background:var(--gold);color:var(--bg);border:1px solid var(--gold);padding:1rem 2rem;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;width:100%;margin-top:.5rem;transition:background .3s,color .3s}
+    .calc-btn:hover{background:transparent;color:var(--gold)}
+    .calc-results{position:sticky;top:calc(var(--nav-h) + 2rem)}
+    .results-panel{background:var(--bg3);border:1px solid var(--border);border-left:2px solid var(--gold);padding:2.5rem;margin-top:2.5rem}
+    .rp-head{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--white);padding-bottom:1.2rem;border-bottom:1px solid var(--border);margin-bottom:.5rem}
+    .rrow{display:flex;justify-content:space-between;align-items:center;padding:.95rem 0;border-bottom:1px solid var(--border)}
+    .rrow:last-child{border:none}
+    .rl{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text3)}
+    .rv{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--white)}
+    .rv.big{color:var(--gold);font-size:1.7rem}
+    .calc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3.5rem 2rem;text-align:center}
+    .calc-empty svg{color:var(--gold);opacity:.2;margin-bottom:1rem}
+    .calc-empty p{font-size:.78rem;font-weight:300;color:var(--text3);line-height:1.7}
+    .calc-note{font-size:.7rem;font-weight:300;color:var(--text3);line-height:1.65;padding-top:1.2rem;border-top:1px solid var(--border);margin-top:.5rem}
 
-    .btn-ghost {
-      display: inline-block;
-      background: transparent;
-      color: var(--text2);
-      padding: 1rem 2.4rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.14);
-      cursor: pointer;
-      transition: border-color 0.3s, color 0.3s;
-    }
-    .btn-ghost:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* Hero bottom bar */
-    .hero-bar {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      animation: fadeUp 0.9s ease 1.1s forwards;
-    }
-    .hero-bar-item {
-      padding: 1.6rem 5rem;
-      border-right: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-    .hero-bar-item:last-child { border-right: none; }
-    .hbi-icon {
-      width: 36px; height: 36px;
-      border: 1px solid var(--border2);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      color: var(--gold);
-    }
-    .hbi-label {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text3);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-    .hbi-value {
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--text2);
-    }
-
-    /* ═══════════════════════════════
-       SHARED SECTION STYLES
-    ═══════════════════════════════ */
-    .section {
-      padding: 7rem 5rem;
-    }
-    .section-alt { background: var(--bg2); }
-    .section-alt2 { background: var(--bg3); }
-
-    .sec-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-    .sec-eyebrow::before {
-      content: '';
-      width: 24px; height: 1px;
-      background: var(--gold);
-    }
-
-    .sec-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
-    .sec-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .sec-body {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--text2);
-      max-width: 580px;
-    }
-
-    .divider {
-      width: 40px; height: 1px;
-      background: var(--gold);
-      opacity: 0.5;
-      margin: 2rem 0;
-    }
-
-    /* ═══════════════════════════════
-       CREDIBILITY
-    ═══════════════════════════════ */
-    #about .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .about-points {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 2rem;
-    }
-
-    .about-point {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1.6rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
-    .about-point:first-child { border-top: 1px solid var(--border); }
-
-    .ap-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      padding-top: 0.15rem;
-      flex-shrink: 0;
-      width: 28px;
-    }
-    .ap-title {
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 0.35rem;
-    }
-    .ap-desc {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--text2);
-      line-height: 1.65;
-    }
-
-    .about-right {
-      padding: 3.5rem;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--gold);
-      position: relative;
-    }
-    .about-right::before {
-      content: '\201C';
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 7rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.12;
-      position: absolute;
-      top: 1rem; left: 2rem;
-    }
-
-    .about-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.55;
-      color: var(--white);
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-focus-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 2rem;
-    }
-    .focus-tag {
-      padding: 0.35rem 0.9rem;
-      border: 1px solid var(--border2);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* ═══════════════════════════════
-       SERVICES
-    ═══════════════════════════════ */
-    #services .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-      margin-top: 4rem;
-    }
-
-    .svc-card {
-      background: var(--bg2);
-      padding: 3rem 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.35s;
-    }
-    .svc-card:hover { background: var(--bg3); }
-
-    .svc-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 100%;
-      height: 2px;
-      background: var(--gold);
-      transition: right 0.4s ease;
-    }
-    .svc-card:hover::after { right: 0; }
-
-    .svc-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--gold);
-      opacity: 0.15;
-      line-height: 1;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .svc-icon {
-      width: 44px; height: 44px;
-      border: 1px solid var(--border2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      margin-bottom: 1.8rem;
-    }
-
-    .svc-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 500;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-
-    .svc-subtitle {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .svc-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .svc-list li {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--text2);
-      padding-left: 1.2rem;
-      position: relative;
-      line-height: 1.5;
-    }
-    .svc-list li::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0.6em;
-      width: 5px; height: 1px;
-      background: var(--gold);
-    }
-
-    /* ═══════════════════════════════
-       MORTGAGE CALCULATOR
-    ═══════════════════════════════ */
-    #calculator {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .calc-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .calc-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-      margin-top: 2.5rem;
-    }
-
-    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .calc-full { grid-column: span 2; }
-
-    .fld {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-    .fld label {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .fld input, .fld select {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-bottom: 1px solid var(--border2);
-      padding: 0.85rem 1rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.25s;
-      -webkit-appearance: none;
-    }
-    .fld input:focus, .fld select:focus {
-      border-color: var(--gold);
-    }
-    .fld input::placeholder { color: var(--text3); }
-    .fld select option { background: var(--bg3); }
-
-    .input-prefix {
-      position: relative;
-    }
-    .input-prefix span {
-      position: absolute;
-      left: 1rem; top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.85rem;
-      color: var(--text3);
-      pointer-events: none;
-    }
-    .input-prefix input { padding-left: 1.8rem; }
-
-    .input-suffix {
-      position: relative;
-    }
-    .input-suffix span {
-      position: absolute;
-      right: 1rem; top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.78rem;
-      color: var(--text3);
-      pointer-events: none;
-    }
-    .input-suffix input { padding-right: 2rem; }
-
-    .calc-submit {
-      background: var(--gold);
-      color: var(--bg);
-      border: 1px solid var(--gold);
-      padding: 1rem 2rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-      width: 100%;
-      margin-top: 0.5rem;
-    }
-    .calc-submit:hover {
-      background: transparent;
-      color: var(--gold);
-    }
-
-    /* Results panel */
-    .calc-results {
-      position: sticky;
-      top: calc(var(--nav-h) + 2rem);
-    }
-
-    .results-panel {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--gold);
-      padding: 2.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .rp-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--white);
-      letter-spacing: 0.05em;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .result-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .result-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .result-row:last-child { border-bottom: none; }
-
-    .rr-label {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text3);
-    }
-
-    .rr-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--white);
-    }
-    .rr-value.highlight {
-      color: var(--gold);
-      font-size: 1.6rem;
-    }
-
-    .result-note {
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: var(--text3);
-      line-height: 1.6;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .calc-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .calc-placeholder svg {
-      color: var(--gold);
-      opacity: 0.25;
-      margin-bottom: 1rem;
-    }
-    .calc-placeholder p {
-      font-size: 0.8rem;
-      color: var(--text3);
-      font-weight: 300;
-    }
-
-    /* ═══════════════════════════════
-       STRATEGY
-    ═══════════════════════════════ */
-    #strategy .strategy-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 6rem;
-      margin-top: 2rem;
-    }
-
-    .strategy-pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 2rem;
-    }
-
-    .pillar {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 1.5rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-      transition: background 0.2s;
-    }
-    .pillar:first-child { border-top: 1px solid var(--border); }
-
-    .pillar-n {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--gold);
-      opacity: 0.3;
-      line-height: 1;
-    }
-
-    .pillar-title {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    .pillar-desc {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--text2);
-      line-height: 1.65;
-    }
-
-    .strategy-manifesto {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 4rem 3.5rem;
-      position: relative;
-      align-self: start;
-      margin-top: 2rem;
-    }
-
-    .strategy-manifesto::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 2px; height: 100%;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-    }
-
-    .manifesto-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.35;
-      color: var(--white);
-      margin-bottom: 2rem;
-    }
-    .manifesto-heading em {
-      font-style: normal;
-      color: var(--gold);
-    }
-
-    .manifesto-body {
-      font-size: 0.88rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: var(--text2);
-      margin-bottom: 1.5rem;
-    }
-
-    .manifesto-principles {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-    .mp {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--text2);
-      letter-spacing: 0.06em;
-    }
-    .mp::before {
-      content: '';
-      width: 8px; height: 8px;
-      border: 1px solid var(--gold);
-      flex-shrink: 0;
-      transform: rotate(45deg);
-    }
-
-    /* ═══════════════════════════════
+    /* ══════════════════════════════
        CONTACT
-    ═══════════════════════════════ */
-    #contact .contact-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
+    ══════════════════════════════ */
+    #contact .contact-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
+    .cf-wrap{background:var(--bg3);border:1px solid var(--border);padding:3rem;margin-top:2.5rem}
+    .cf{display:flex;flex-direction:column;gap:1.2rem}
+    .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    .cfd{display:flex;flex-direction:column;gap:.42rem}
+    .cfd label{font-size:.57rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+    .cfd input,.cfd select,.cfd textarea{background:var(--bg2);border:1px solid var(--border);padding:.88rem 1rem;font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;color:var(--text);outline:none;transition:border-color .25s;resize:none;-webkit-appearance:none}
+    .cfd input:focus,.cfd select:focus,.cfd textarea:focus{border-color:var(--gold)}
+    .cfd input::placeholder,.cfd textarea::placeholder{color:var(--text3)}
+    .cfd select option{background:var(--bg2)}
+    .cf-submit{background:var(--gold);color:var(--bg);border:1px solid var(--gold);padding:1rem;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;width:100%;transition:.3s;margin-top:.4rem}
+    .cf-submit:hover{background:transparent;color:var(--gold)}
+    .ci-panel{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+    .ci{padding:1.6rem 0;border-bottom:1px solid var(--border);display:flex;gap:1.2rem;align-items:flex-start}
+    .ci:first-child{border-top:1px solid var(--border)}
+    .ci-box{width:40px;height:40px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;margin-top:2px}
+    .ci-lbl{font-size:.55rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:3px}
+    .ci-val{font-size:.88rem;font-weight:400;color:var(--text)}
+    .ci-val a{color:var(--text);transition:color .2s}.ci-val a:hover{color:var(--gold)}
 
-    .contact-form-wrap {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 3rem;
-      margin-top: 2.5rem;
-    }
+    /* ══════════════════════════════
+       BOOK CONSULTATION
+    ══════════════════════════════ */
+    #bookConsultation .cal-wrap{border:1px dashed var(--border2);padding:4rem;text-align:center;background:var(--bg3);margin-top:3rem}
+    .cal-icon{color:var(--gold);opacity:.25;margin:0 auto 1.2rem}
+    .cal-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--text2);margin-bottom:.6rem}
+    .cal-code{font-family:monospace;font-size:.7rem;color:var(--text3);background:var(--bg2);padding:1.5rem 2rem;display:inline-block;margin-top:1rem;border:1px solid var(--border);line-height:2}
 
-    .cf {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .cf-full { grid-column: span 2; }
+    /* ══════════════════════════════
+       WHATSAPP FLOAT
+    ══════════════════════════════ */
+    .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .25s,box-shadow .25s;cursor:pointer}
+    .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.45)}
+    .wa-float svg{color:#fff}
+    .wa-tooltip{position:absolute;right:calc(100% + .8rem);top:50%;transform:translateY(-50%);background:rgba(12,12,12,.92);border:1px solid var(--border);padding:.45rem .9rem;white-space:nowrap;font-size:.65rem;font-weight:500;letter-spacing:.1em;color:var(--text2);opacity:0;pointer-events:none;transition:opacity .2s}
+    .wa-float:hover .wa-tooltip{opacity:1}
 
-    .cfield {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .cfield label {
-      font-size: 0.58rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .cfield input,
-    .cfield select,
-    .cfield textarea {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 0.85rem 1rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.25s;
-      resize: none;
-      -webkit-appearance: none;
-    }
-    .cfield input:focus,
-    .cfield select:focus,
-    .cfield textarea:focus { border-color: var(--gold); }
-    .cfield input::placeholder,
-    .cfield textarea::placeholder { color: var(--text3); }
-    .cfield select option { background: var(--bg2); }
-
-    .cf-btn {
-      background: var(--gold);
-      color: var(--bg);
-      border: 1px solid var(--gold);
-      padding: 1rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      cursor: pointer;
-      width: 100%;
-      transition: background 0.3s, color 0.3s;
-      margin-top: 0.5rem;
-    }
-    .cf-btn:hover { background: transparent; color: var(--gold); }
-
-    /* Contact info panel */
-    .contact-info-panel {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .ci-block {
-      padding: 1.8rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 1.3rem;
-      align-items: flex-start;
-    }
-    .ci-block:first-child { border-top: 1px solid var(--border); }
-
-    .ci-icon-box {
-      width: 40px; height: 40px;
-      border: 1px solid var(--border2);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .ci-lbl {
-      font-size: 0.58rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text3);
-      margin-bottom: 0.3rem;
-      display: block;
-    }
-    .ci-val {
-      font-size: 0.88rem;
-      font-weight: 400;
-      color: var(--text);
-    }
-    .ci-val a { color: var(--text); transition: color 0.2s; }
-    .ci-val a:hover { color: var(--gold); }
-
-    .contact-note {
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--text3);
-      line-height: 1.7;
-      margin-top: 2rem;
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--gold);
-    }
-
-    /* ═══════════════════════════════
+    /* ══════════════════════════════
        FOOTER
-    ═══════════════════════════════ */
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 3rem 5rem;
-    }
+    ══════════════════════════════ */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:3.5rem 5rem}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;margin-bottom:2.5rem;flex-wrap:wrap}
+    .fb-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--white)}
+    .fb-brokerage{font-size:.58rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+    .fb-area{font-size:.72rem;font-weight:300;color:var(--text3);margin-top:6px}
+    .footer-links{display:flex;flex-wrap:wrap;gap:1.8rem}
+    .footer-links a{font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);transition:color .2s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-contact a{display:block;font-size:.82rem;font-weight:300;color:var(--text2);transition:color .2s;text-align:right}
+    .footer-contact a:hover{color:var(--gold)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
+    .footer-disc{font-size:.65rem;font-weight:300;color:var(--text3);line-height:1.75;max-width:680px}
+    .footer-copy{font-size:.62rem;font-weight:300;color:var(--text3);white-space:nowrap}
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 3rem;
-      margin-bottom: 2.5rem;
-    }
+    /* ══════════════════════════════
+       KEYFRAMES
+    ══════════════════════════════ */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 
-    .footer-brand .fb-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--white);
-      letter-spacing: 0.05em;
-    }
-    .footer-brand .fb-brokerage {
-      font-size: 0.6rem;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 4px;
-    }
-    .footer-brand .fb-area {
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: var(--text3);
-      margin-top: 6px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-    }
-    .footer-links a {
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text3);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-
-    .footer-contact {
-      text-align: right;
-    }
-    .footer-contact a {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 300;
-      color: var(--text2);
-      transition: color 0.2s;
-    }
-    .footer-contact a:hover { color: var(--gold); }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-
-    .footer-disclaimer {
-      font-size: 0.68rem;
-      font-weight: 300;
-      color: var(--text3);
-      line-height: 1.7;
-      max-width: 680px;
-    }
-
-    .footer-copy {
-      font-size: 0.65rem;
-      font-weight: 300;
-      color: var(--text3);
-      white-space: nowrap;
-    }
-
-    /* ═══════════════════════════════
-       ANIMATIONS
-    ═══════════════════════════════ */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ═══════════════════════════════
-       MOBILE MENU
-    ═══════════════════════════════ */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: var(--nav-h); left: 0; right: 0; bottom: 0;
-      background: rgba(14,14,14,0.97);
-      z-index: 850;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 1.1rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text2);
-      transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--gold); }
-
-    /* ═══════════════════════════════
+    /* ══════════════════════════════
        RESPONSIVE
-    ═══════════════════════════════ */
-    @media (max-width: 1100px) {
-      #nav { padding: 0 2.5rem; }
-      .section { padding: 5rem 2.5rem; }
-      #home { padding-left: 2.5rem; padding-right: 2.5rem; }
-      footer { padding: 3rem 2.5rem; }
-
-      #about .about-grid,
-      #strategy .strategy-layout,
-      #contact .contact-layout,
-      .calc-layout { grid-template-columns: 1fr; gap: 3rem; }
-
-      #services .services-grid { grid-template-columns: 1fr; gap: 1.5px; }
-
-      .calc-results { position: static; }
-
-      .hero-bar { position: relative; }
-      .hero-bar-item { padding: 1.4rem 2rem; }
-
-      .footer-inner { flex-direction: column; gap: 2rem; }
-      .footer-contact { text-align: left; }
-      .footer-bottom { flex-direction: column; }
-      .footer-links { flex-wrap: wrap; gap: 1.5rem; }
+    ══════════════════════════════ */
+    @media(max-width:1100px){
+      #mainNav{padding:0 2rem}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .nav-phone{display:none}
+      .section{padding:5rem 2.5rem}
+      #home{grid-template-columns:1fr}
+      .hero-right{height:50vh}
+      .hero-left{padding:calc(var(--nav-h) + 3rem) 2.5rem 3rem}
+      .hero-bar{grid-column:span 1;grid-template-columns:1fr}
+      .hbi{padding:1.2rem 2.5rem;border-right:none;border-bottom:1px solid var(--border)}
+      .hbi:last-child{border-bottom:none}
+      #buyers .buyers-grid,#sellers .sellers-grid,#investors .inv-grid,#powerOfSale .pos-grid,#calculator .calc-layout,#contact .contact-layout{grid-template-columns:1fr;gap:3rem}
+      #investors .inv-grid{gap:1.5px}
+      .calc-results{position:static}
+      footer{padding:3rem 2.5rem}
     }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-
-      .hero-h1 { font-size: 2.8rem; }
-      .hero-bar { grid-template-columns: 1fr; }
-      .hero-bar-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .hero-bar-item:last-child { border-bottom: none; }
-
-      .calc-row { grid-template-columns: 1fr; }
-      .calc-full { grid-column: span 1; }
-      .cf-row { grid-template-columns: 1fr; }
-      .cf-full { grid-column: span 1; }
+    @media(max-width:680px){
+      .fld-row,.cf-row{grid-template-columns:1fr}
+      .hero-btns{flex-direction:column;align-items:flex-start}
+      .btn{width:100%;justify-content:center}
+      #investors .inv-grid{grid-template-columns:1fr}
+      #marketWatch .mw-grid{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column}
+      .footer-contact a{text-align:left}
+      .footer-bottom{flex-direction:column}
     }
   </style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════
-       NAVIGATION
-  ══════════════════════════════ -->
-  <nav id="nav">
-    <a href="#home" class="nav-logo">
-      <span class="nav-logo-name">Harbir Gill</span>
-      <span class="nav-logo-sub">RE/MAX Gold Realty Inc.</span>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#strategy">Strategy</a></li>
-      <li><a href="#calculator">Calculator</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
-    </ul>
-
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+<!-- ══════════════════════════════
+     NAVIGATION
+══════════════════════════════ -->
+<nav id="mainNav">
+  <a href="#home" class="nav-brand">
+    <span class="nav-brand-name">Harbir Gill</span>
+    <span class="nav-brand-sub">RE/MAX Gold Realty Inc.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#buyers">Buyers</a></li>
+    <li><a href="#sellers">Sellers</a></li>
+    <li><a href="#investors">Investors</a></li>
+    <li><a href="#powerOfSale">Power of Sale</a></li>
+    <li><a href="#deals">Deals</a></li>
+    <li><a href="#marketWatch">Market Watch</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta-wrap">
+    <a href="tel:6475461300" class="nav-phone">647-546-1300</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home"       onclick="closeMenu()">Home</a>
-    <a href="#services"   onclick="closeMenu()">Services</a>
-    <a href="#strategy"   onclick="closeMenu()">Strategy</a>
-    <a href="#calculator" onclick="closeMenu()">Calculator</a>
-    <a href="#contact"    onclick="closeMenu()">Contact</a>
   </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home"           onclick="closeMobile()">Home</a>
+  <a href="#buyers"         onclick="closeMobile()">Buyers</a>
+  <a href="#sellers"        onclick="closeMobile()">Sellers</a>
+  <a href="#investors"      onclick="closeMobile()">Investors</a>
+  <a href="#powerOfSale"    onclick="closeMobile()">Power of Sale</a>
+  <a href="#deals"          onclick="closeMobile()">Deals</a>
+  <a href="#marketWatch"    onclick="closeMobile()">Market Watch</a>
+  <a href="#calculator"     onclick="closeMobile()">Calculator</a>
+  <a href="#contact"        onclick="closeMobile()">Contact</a>
+</div>
 
-  <!-- ══════════════════════════════
-       HERO
-  ══════════════════════════════ -->
-  <section id="home">
-    <div class="hero-inner">
-      <div class="hero-tag">Realtor · Ontario Real Estate</div>
-
-      <h1 class="hero-h1">
-        Structured Real Estate.<br>
-        <em>Disciplined Execution.</em>
-      </h1>
-
-      <p class="hero-sub">
-        Realtor with RE/MAX Gold Realty Inc., Brokerage. Serving clients across Ontario with 5+ years of structured market experience — from first-time buyers to strategic investors.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Book Strategic Consultation</a>
-        <a href="#services" class="btn-ghost">View Services</a>
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-tag">Ontario Real Estate · RE/MAX Gold Realty</div>
+    <h1 class="hero-h1">Structured Real Estate.<br><em>Disciplined Execution.</em></h1>
+    <p class="hero-sub">Realtor with RE/MAX Gold Realty Inc., Brokerage — serving buyers, sellers, and investors across Ontario with 5+ years of structured market experience and analytical precision.</p>
+    <div class="hero-btns">
+      <a href="#bookConsultation" class="btn btn-gold">Book Consultation</a>
+      <a href="mailto:harbirgill12@gmail.com?subject=Free Advice Request" class="btn btn-ghost">Ask for Free Advice</a>
+      <a href="#contact" class="btn btn-outline-gold">Free Market Evaluation</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-area">
+      <!-- Replace with professional headshot image -->
+      <!-- Example: <img src="harbir-headshot.jpg" alt="Harbir Gill" class="hero-img-placeholder"/> -->
+      <div class="hero-img-msg">
+        <span>Harbir Gill</span>
+        <p>Replace this area with<br>a professional headshot.<br><br>
+        <code style="font-size:.6rem;color:var(--gold);letter-spacing:.05em">&lt;img src="headshot.jpg" alt="Harbir Gill"/&gt;</code></p>
       </div>
     </div>
-
-    <div class="hero-bar">
-      <div class="hero-bar-item">
-        <div class="hbi-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        </div>
-        <div>
-          <span class="hbi-label">Service Area</span>
-          <span class="hbi-value">Brampton · GTA · Mississauga · Caledon</span>
-        </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hbi">
+      <div class="hbi-ico">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
       </div>
-      <div class="hero-bar-item">
-        <div class="hbi-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <div>
-          <span class="hbi-label">Experience</span>
-          <span class="hbi-value">5+ Years in Ontario Real Estate</span>
-        </div>
-      </div>
-      <div class="hero-bar-item">
-        <div class="hbi-icon">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <span class="hbi-label">Brokerage</span>
-          <span class="hbi-value">RE/MAX Gold Realty Inc., Brokerage</span>
-        </div>
-      </div>
+      <div><span class="hbi-lbl">Service Area</span><span class="hbi-val">Brampton · GTA · Mississauga · Caledon · All Ontario</span></div>
     </div>
-  </section>
+    <div class="hbi">
+      <div class="hbi-ico">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div><span class="hbi-lbl">Experience</span><span class="hbi-val">5+ Years in Ontario Real Estate</span></div>
+    </div>
+    <div class="hbi">
+      <div class="hbi-ico">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 011.18 3 2 2 0 013.18 1H6a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div><span class="hbi-lbl">Direct Line</span><span class="hbi-val"><a href="tel:6475461300" style="color:var(--text2);transition:.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text2)'">647-546-1300</a></span></div>
+    </div>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════
-       CREDIBILITY / ABOUT
-  ══════════════════════════════ -->
-  <section id="about" class="section section-alt">
-    <div class="about-grid">
+<!-- ══════════════════════════════
+     BUYERS
+══════════════════════════════ -->
+<section id="buyers" class="section section-dark">
+  <div class="container">
+    <div class="buyers-grid">
       <div>
-        <div class="sec-eyebrow reveal">Professional Background</div>
-        <h2 class="sec-title reveal reveal-delay-1">Analytical.<br><em>Structured.</em> Experienced.</h2>
-        <p class="sec-body reveal reveal-delay-2">Real estate decisions carry significant financial weight. My approach is built on disciplined evaluation, clear communication, and a commitment to protecting your capital at every step of the transaction.</p>
-        <div class="divider reveal reveal-delay-2"></div>
-
-        <div class="about-points">
-          <div class="about-point reveal reveal-delay-1">
-            <span class="ap-num">01</span>
+        <div class="eyebrow reveal">For Buyers</div>
+        <h2 class="sec-title reveal rd1">Buying a Home in Ontario.<br><em>Step by Step.</em></h2>
+        <p class="sec-body reveal rd2">Whether you're purchasing your first home or upgrading, the buying process should be structured, informed, and protected from start to finish.</p>
+        <div class="divider reveal rd2"></div>
+        <div class="step-list">
+          <div class="step reveal rd1">
+            <span class="step-n">01</span>
             <div>
-              <div class="ap-title">5+ Years in Ontario Real Estate</div>
-              <div class="ap-desc">Hands-on experience navigating the Ontario market through varied conditions — fast-moving seller markets, correction cycles, and investment transitions.</div>
+              <div class="step-title">Mortgage Pre-Approval</div>
+              <div class="step-desc">Before searching, understand what you can qualify for. Pre-approval anchors your budget, strengthens your offer position, and avoids wasted time on properties outside your range.</div>
             </div>
           </div>
-          <div class="about-point reveal reveal-delay-2">
-            <span class="ap-num">02</span>
+          <div class="step reveal rd2">
+            <span class="step-n">02</span>
             <div>
-              <div class="ap-title">Analytical Decision Making</div>
-              <div class="ap-desc">Every recommendation is grounded in data — comparable sales, market absorption rates, cost-of-carry analysis, and long-term resale positioning.</div>
+              <div class="step-title">Market Education &amp; Property Search</div>
+              <div class="step-desc">Understand what drives pricing in your target area — recent sales, days-on-market trends, and neighbourhood fundamentals. We search with purpose, not volume.</div>
             </div>
           </div>
-          <div class="about-point reveal reveal-delay-3">
-            <span class="ap-num">03</span>
+          <div class="step reveal rd3">
+            <span class="step-n">03</span>
             <div>
-              <div class="ap-title">Structured Offer &amp; Risk Awareness</div>
-              <div class="ap-desc">Conditions, timelines, deposit structures, and inspection contingencies — crafted with precision to protect your interests without undermining your position.</div>
+              <div class="step-title">Offer Strategy</div>
+              <div class="step-desc">Your offer is built around data: comparable sales, seller position, listing history, and your timeline. Terms, conditions, and deposit structure are all deliberate.</div>
             </div>
           </div>
-          <div class="about-point reveal reveal-delay-4">
-            <span class="ap-num">04</span>
+          <div class="step reveal rd4">
+            <span class="step-n">04</span>
             <div>
-              <div class="ap-title">Disciplined Negotiation Strategy</div>
-              <div class="ap-desc">Negotiation is not improvisation. It is preparation, positioning, and patience — executed within a clear framework aligned to your goals.</div>
+              <div class="step-title">Risk &amp; Inspection Awareness</div>
+              <div class="step-desc">Conditions exist to protect you. Understanding when to include an inspection, financing condition, or status certificate review is critical — especially in fast markets.</div>
             </div>
           </div>
+          <div class="step reveal rd5">
+            <span class="step-n">05</span>
+            <div>
+              <div class="step-title">Closing &amp; Long-Term Positioning</div>
+              <div class="step-desc">From accepted offer to key handoff, every step is tracked. We also evaluate each property for long-term resale potential, not just immediate appeal.</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2.5rem" class="reveal">
+          <a href="#contact" class="btn btn-gold">Start Your Buyer Journey</a>
         </div>
       </div>
-
-      <div class="about-right reveal reveal-delay-2">
-        <div class="about-quote">
-          "Real estate is not about transactions — it is about capital decisions that shape financial futures. I take that responsibility seriously."
+      <div>
+        <div class="info-card reveal rd2">
+          <div class="ic-title">First-Time Buyer Checklist</div>
+          <ul class="ic-list">
+            <li>Get pre-approved before making any offers</li>
+            <li>Budget for land transfer tax, legal fees, and title insurance</li>
+            <li>Understand the Ontario First-Time Home Buyer Incentive programs</li>
+            <li>Never waive inspection in high-risk properties without expert guidance</li>
+            <li>Know your neighbourhood — infrastructure, school zones, transit access</li>
+            <li>Review status certificates for condo purchases before firming up</li>
+            <li>Plan for closing costs: typically 1.5%–4% of purchase price</li>
+          </ul>
         </div>
-        <div class="about-focus-tags">
-          <span class="focus-tag">First-Time Buyers</span>
-          <span class="focus-tag">Investment Strategy</span>
-          <span class="focus-tag">GTA Market</span>
-          <span class="focus-tag">Brampton</span>
-          <span class="focus-tag">Mississauga</span>
-          <span class="focus-tag">Caledon</span>
-          <span class="focus-tag">Offer Structuring</span>
-          <span class="focus-tag">Portfolio Planning</span>
+        <div class="info-card reveal rd3" style="margin-top:1.5rem">
+          <div class="ic-title">Why Offer Strategy Matters</div>
+          <ul class="ic-list">
+            <li>Understand multiple offer situations before you're in one</li>
+            <li>Escalation clauses — when they work and when they backfire</li>
+            <li>Deposit amounts signal seriousness — structure them correctly</li>
+            <li>Closing timeline flexibility can be a competitive advantage</li>
+            <li>Know your walk-away number before emotion takes over</li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════
-       SERVICES
-  ══════════════════════════════ -->
-  <section id="services" class="section">
-    <div class="reveal">
-      <div class="sec-eyebrow">What I Offer</div>
-      <h2 class="sec-title">Advisory <em>Services</em></h2>
-      <p class="sec-body">Three focused service tracks — each built around a specific client profile and designed to deliver structured, deliberate outcomes.</p>
+<!-- ══════════════════════════════
+     SELLERS
+══════════════════════════════ -->
+<section id="sellers" class="section section-mid">
+  <div class="container">
+    <div class="sellers-grid">
+      <div>
+        <div class="eyebrow reveal">For Sellers</div>
+        <h2 class="sec-title reveal rd1">Selling Your Property<br><em>Strategically.</em></h2>
+        <p class="sec-body reveal rd2">Selling is not about listing and waiting. It requires accurate pricing, proper preparation, and deliberate negotiation positioning to achieve the outcome you need.</p>
+        <div class="divider reveal rd2"></div>
+        <div class="process-cards reveal">
+          <div class="pc">
+            <span class="pc-num">01</span>
+            <div>
+              <div class="pc-title">Free Market Evaluation</div>
+              <div class="pc-desc">Understand your property's current market value based on recent comparable sales in your neighbourhood, condition adjustments, and current inventory levels. No cost. No obligation.</div>
+            </div>
+          </div>
+          <div class="pc">
+            <span class="pc-num">02</span>
+            <div>
+              <div class="pc-title">Pricing Strategy</div>
+              <div class="pc-desc">Overpricing leads to extended days-on-market and stigma. Underpricing leaves money on the table. Strategic pricing positions your listing to attract qualified buyers and create competitive dynamics.</div>
+            </div>
+          </div>
+          <div class="pc">
+            <span class="pc-num">03</span>
+            <div>
+              <div class="pc-title">Recent Comparables Analysis</div>
+              <div class="pc-desc">Every pricing recommendation is supported by actual sold data — not estimates, not automated tools. We review what sold, when it sold, and why it sold at that price.</div>
+            </div>
+          </div>
+          <div class="pc">
+            <span class="pc-num">04</span>
+            <div>
+              <div class="pc-title">Negotiation Positioning</div>
+              <div class="pc-desc">Preparation and patience drive negotiation outcomes. Understanding buyer motivations, offer terms, and counter-offer strategy protects your net proceeds at closing.</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2.5rem" class="reveal">
+          <a href="#contact" class="btn btn-gold">Request Free Evaluation</a>
+        </div>
+      </div>
+      <div>
+        <div class="eval-box reveal rd2">
+          <div class="eval-title">Free Market Evaluation</div>
+          <div class="eval-desc">Not sure what your home is worth in today's market? I'll prepare a no-obligation Comparative Market Analysis (CMA) based on recent sales data, your property's condition, and current buyer demand in your neighbourhood. No automated estimate — a real analysis from a real professional.</div>
+          <a href="#contact" class="btn btn-outline-gold">Request Your CMA</a>
+        </div>
+        <div class="info-card reveal rd3" style="margin-top:1.5rem">
+          <div class="ic-title">What Affects Your Sale Price</div>
+          <ul class="ic-list">
+            <li>Current active inventory and absorption rate in your area</li>
+            <li>Condition, staging, and first impression quality</li>
+            <li>Listing timing relative to seasonal demand cycles</li>
+            <li>Days-on-market — every week adds buyer leverage</li>
+            <li>Offer conditions and closing flexibility</li>
+            <li>Marketing reach and professional photography quality</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="services-grid">
-      <!-- Card 1 -->
-      <div class="svc-card reveal reveal-delay-1">
-        <span class="svc-num">01</span>
-        <div class="svc-icon">
+<!-- ══════════════════════════════
+     INVESTORS
+══════════════════════════════ -->
+<section id="investors" class="section section-dark">
+  <div class="container">
+    <div class="reveal"><div class="eyebrow">For Investors</div>
+    <h2 class="sec-title">Real Estate Investment.<br><em>Margin-First Thinking.</em></h2>
+    <p class="sec-body">Investment decisions require a different framework than personal purchases. The analysis starts with numbers — and the numbers have to work before emotion enters the picture.</p></div>
+    <div class="inv-grid">
+      <div class="inv-card reveal rd1">
+        <div class="inv-n">01</div>
+        <div class="inv-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div class="inv-title">Flip &amp; Renovation Strategy</div>
+        <div class="inv-sub">Margin evaluation</div>
+        <ul class="inv-list">
+          <li>Acquisition cost vs. realistic exit value analysis</li>
+          <li>Renovation feasibility and cost estimation framework</li>
+          <li>Holding costs, carrying costs, and timeline planning</li>
+          <li>Power of sale and distress property opportunities</li>
+          <li>Exit strategy before purchase commitment</li>
+        </ul>
+      </div>
+      <div class="inv-card reveal rd2">
+        <div class="inv-n">02</div>
+        <div class="inv-icon">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <div class="svc-title">First-Time Buyers</div>
-        <div class="svc-subtitle">Clarity from day one</div>
-        <ul class="svc-list">
-          <li>Market value clarity — understanding what you are actually paying for</li>
-          <li>Offer structuring to protect your position in competitive situations</li>
-          <li>Risk and inspection awareness before conditions are waived</li>
-          <li>Long-term resale positioning built into purchase decisions from the start</li>
+        <div class="inv-title">Cashflow Rental Strategy</div>
+        <div class="inv-sub">Income property analysis</div>
+        <ul class="inv-list">
+          <li>Gross yield and net cashflow evaluation</li>
+          <li>Multi-unit and duplex opportunity identification</li>
+          <li>Vacancy rate and tenant demand by neighbourhood</li>
+          <li>Mortgage structure for optimal cashflow ratio</li>
+          <li>Ontario Landlord and Tenant Act awareness</li>
         </ul>
       </div>
-
-      <!-- Card 2 -->
-      <div class="svc-card reveal reveal-delay-2">
-        <span class="svc-num">02</span>
-        <div class="svc-icon">
+      <div class="inv-card reveal rd3">
+        <div class="inv-n">03</div>
+        <div class="inv-icon">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
-        <div class="svc-title">Investment &amp; Flip Strategy</div>
-        <div class="svc-subtitle">Margin-focused evaluation</div>
-        <ul class="svc-list">
-          <li>Margin evaluation — acquisition cost versus realistic exit value</li>
-          <li>Renovation feasibility thinking before capital is committed</li>
-          <li>Power of sale opportunity review and due diligence framework</li>
-          <li>Cashflow structure assessment for rental and multi-unit properties</li>
-        </ul>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="svc-card reveal reveal-delay-3">
-        <span class="svc-num">03</span>
-        <div class="svc-icon">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="svc-title">Strategic Planning</div>
-        <div class="svc-subtitle">Capital &amp; portfolio thinking</div>
-        <ul class="svc-list">
-          <li>Mortgage scenario modeling across rate environments and terms</li>
-          <li>Closing cost forecasting — no financial surprises at the table</li>
-          <li>Capital allocation thinking for upgrade, downsize, or lateral moves</li>
-          <li>Long-term portfolio planning for multi-property ownership goals</li>
+        <div class="inv-title">Long-Term Capital Planning</div>
+        <div class="inv-sub">Portfolio growth thinking</div>
+        <ul class="inv-list">
+          <li>Capital appreciation outlook by submarket</li>
+          <li>Equity leverage and refinancing strategy</li>
+          <li>Infrastructure and development zone awareness</li>
+          <li>Portfolio sequencing — when to buy, hold, or sell</li>
+          <li>Tax-efficient ownership structure considerations</li>
         </ul>
       </div>
     </div>
-  </section>
+    <div style="margin-top:3rem;text-align:center" class="reveal">
+      <a href="#contact" class="btn btn-gold">Discuss Investment Strategy</a>
+    </div>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════
-       MORTGAGE CALCULATOR
-  ══════════════════════════════ -->
-  <section id="calculator" class="section section-alt">
-    <div class="calc-layout">
-      <!-- Left: Form -->
+<!-- ══════════════════════════════
+     POWER OF SALE
+══════════════════════════════ -->
+<section id="powerOfSale" class="section section-mid">
+  <div class="container">
+    <div class="pos-grid">
       <div>
-        <div class="reveal">
-          <div class="sec-eyebrow">Financial Tool</div>
-          <h2 class="sec-title">Mortgage <em>Calculator</em></h2>
-          <p class="sec-body">Model your mortgage payments with accurate amortization. Understand your loan structure before you sit at the table.</p>
+        <div class="eyebrow reveal">Ontario Market</div>
+        <h2 class="sec-title reveal rd1">Power of Sale &amp;<br><em>Distress Opportunities</em></h2>
+        <p class="sec-body reveal rd2">Understanding distressed sale situations is a specialized skill. These opportunities carry potential — but also require careful due diligence and a structured approach.</p>
+        <div class="divider reveal rd2"></div>
+        <div class="pos-explain reveal rd2">
+          <h4>What is Power of Sale in Ontario?</h4>
+          <p>In Ontario, when a homeowner defaults on their mortgage, the lender has the right to sell the property without going through the court system — this is called Power of Sale. Unlike foreclosure (which is rare in Ontario), the lender simply seeks to recover the outstanding mortgage balance plus costs.</p>
+          <p>Power of Sale properties are often listed at or below market value because the lender's primary goal is debt recovery, not maximum profit. However, they are sold "as-is" — no representations, no warranties, no repairs.</p>
+          <p>Buyers of Power of Sale properties take on unknown risk: liens, outstanding property taxes, interior condition, and occupancy complications. Proper due diligence is not optional — it is essential.</p>
         </div>
+      </div>
+      <div>
+        <div class="pos-steps reveal rd2">
+          <div class="pos-step">
+            <div class="ps-dot"></div>
+            <div>
+              <div class="ps-title">Identify the Opportunity</div>
+              <div class="ps-desc">Power of Sale listings are publicly listed but require knowing what to look for — specific listing language, lender-managed properties, and off-market situations through industry networks.</div>
+            </div>
+          </div>
+          <div class="pos-step">
+            <div class="ps-dot"></div>
+            <div>
+              <div class="ps-title">Due Diligence Framework</div>
+              <div class="ps-desc">Title searches, outstanding tax review, utility arrears, and physical inspection (where permitted) are non-negotiable steps before an offer is considered.</div>
+            </div>
+          </div>
+          <div class="pos-step">
+            <div class="ps-dot"></div>
+            <div>
+              <div class="ps-title">Offer Structure on POS Properties</div>
+              <div class="ps-desc">Lenders typically require Schedule A documentation and have strict acceptance timelines. Understanding their process and positioning your offer accordingly is critical to securing the deal.</div>
+            </div>
+          </div>
+          <div class="pos-step">
+            <div class="ps-dot"></div>
+            <div>
+              <div class="ps-title">Vacant Possession Confirmation</div>
+              <div class="ps-desc">Occupied Power of Sale properties carry additional complexity. Confirming vacant possession arrangements before closing protects your timeline and investment.</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert-box reveal rd3">
+          <h4>Receive Power of Sale Alerts</h4>
+          <p>Get notified when new distress opportunities appear in your target area before they hit the general market.</p>
+          <a href="#contact" class="btn btn-outline-gold">Request POS Alerts</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="calc-form reveal reveal-delay-1">
-          <div class="calc-row">
+<!-- ══════════════════════════════
+     DEALS OF THE MONTH
+══════════════════════════════ -->
+<section id="deals" class="section section-dark">
+  <div class="container">
+    <div class="deals-inner reveal">
+      <div class="eyebrow" style="justify-content:center">Featured Opportunities</div>
+      <h2 class="sec-title" style="text-align:center">Deals of <em>the Month</em></h2>
+      <p class="sec-body" style="text-align:center;margin:0 auto">Select opportunities in the Ontario market — underpriced listings, distress situations, and high-potential investment properties identified through active market monitoring.</p>
+    </div>
+    <div class="deals-notify reveal rd2">
+      <h3>Current Featured Opportunities</h3>
+      <p>Deal listings are updated monthly and shared directly with registered contacts. Opportunities include below-market properties, Power of Sale listings, pre-construction deals, and investment-grade properties across Ontario.</p>
+      <div class="deals-types">
+        <div class="dt">
+          <div class="dt-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <span class="dt-label">Residential</span>
+        </div>
+        <div class="dt">
+          <div class="dt-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <span class="dt-label">Commercial</span>
+        </div>
+        <div class="dt">
+          <div class="dt-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <span class="dt-label">Investment</span>
+        </div>
+        <div class="dt">
+          <div class="dt-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="dt-label">Power of Sale</span>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-gold">Register for Deal Notifications</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     MARKET WATCH
+══════════════════════════════ -->
+<section id="marketWatch" class="section section-mid">
+  <div class="container">
+    <div class="reveal"><div class="eyebrow">Ontario Market</div>
+    <h2 class="sec-title">Market Watch &amp;<br><em>Neighbourhood Intelligence</em></h2>
+    <p class="sec-body">Understanding the Ontario real estate market requires looking beyond headlines. Inventory levels, price movement, and infrastructure development all affect buying and selling decisions.</p></div>
+    <div class="mw-grid">
+      <div class="mw-card reveal rd1">
+        <span class="mw-tag">Inventory &amp; Supply</span>
+        <div class="mw-title">Active Listings vs. Buyer Demand</div>
+        <div class="mw-body">Ontario's market continues to be shaped by the balance between active inventory and qualified buyer demand. In supply-constrained markets like Brampton, Mississauga, and parts of the GTA, limited new listings continue to support price floors even when transaction volumes soften. Monitoring months-of-supply is a more reliable demand indicator than headline price data alone.</div>
+        <div class="mw-note">Data varies by neighbourhood — always verify with current MLS statistics.</div>
+      </div>
+      <div class="mw-card reveal rd2">
+        <span class="mw-tag">Price Movement</span>
+        <div class="mw-title">Reading Price Trends Correctly</div>
+        <div class="mw-body">Average price data can be misleading when composition of sales shifts between property types. A decline in average price may reflect fewer detached home sales — not actual depreciation in a specific segment. Evaluating price-per-square-foot and median price changes by property type and neighbourhood gives a more accurate read of true market movement.</div>
+        <div class="mw-note">Work with a Realtor who reviews actual comparable data, not just aggregate reports.</div>
+      </div>
+      <div class="mw-card reveal rd3">
+        <span class="mw-tag">Interest Rates &amp; Affordability</span>
+        <div class="mw-title">Rate Environment &amp; Buyer Qualification</div>
+        <div class="mw-body">The Bank of Canada's rate decisions directly impact buyer purchasing power and mortgage carrying costs. As the rate environment evolves, buyer qualification thresholds shift, affecting what segments of the market see the most activity. Stress test requirements and qualifying rates continue to be a significant factor for first-time buyers and investors structuring financing.</div>
+        <div class="mw-note">Speak with a licensed mortgage professional for current qualification modeling.</div>
+      </div>
+      <div class="mw-card reveal rd4">
+        <span class="mw-tag">Infrastructure &amp; Development</span>
+        <div class="mw-title">Development Zones &amp; Long-Term Value</div>
+        <div class="mw-body">Infrastructure investment is one of the most reliable long-term value drivers in real estate. Transit expansions, GO station development, highway access improvements, and planned community growth zones in areas like Caledon, the Peel Region, and the broader GTA create medium and long-term capital appreciation opportunities for investors who position early and hold deliberately.</div>
+        <div class="mw-note">Infrastructure timelines are subject to government approvals and are not guarantees of value growth.</div>
+      </div>
+    </div>
+    <div class="mw-disclaimer reveal">
+      Market information above is general in nature and intended for informational purposes only. Conditions vary significantly by neighbourhood, property type, and timeframe. Always consult current MLS data and a licensed Realtor before making real estate decisions.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     LIVE LISTINGS
+══════════════════════════════ -->
+<section id="listings" class="section section-dark">
+  <div class="container">
+    <div class="reveal"><div class="eyebrow">Live MLS Listings</div>
+    <h2 class="sec-title">Current <em>Listings</em></h2>
+    <p class="sec-body">Active properties across Ontario — updated in real time via TRREB-approved IDX integration.</p></div>
+    <div class="listing-placeholder reveal rd1">
+      <div class="lp-icon">
+        <svg width="52" height="52" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="lp-title">Live Listings — IDX Integration Area</div>
+      <p style="font-size:.82rem;font-weight:300;color:var(--text3);line-height:1.7;margin-top:.5rem;max-width:560px;margin-left:auto;margin-right:auto">Insert your TRREB-approved IDX embed code below. Your IDX provider will supply an iframe or JavaScript snippet to display live MLS listings in this section.</p>
+      <div class="lp-code">
+        &lt;!-- Insert TRREB IDX embed code here --&gt;<br>
+        &lt;!-- Example: iframe or vendor script provided by approved IDX provider --&gt;<br>
+        &lt;!-- Contact your IDX vendor (e.g. iHomeFinder, DDF, Showcase IDX) --&gt;<br>
+        &lt;!-- for your account-specific embed script or iframe URL --&gt;<br><br>
+        &lt;!-- Placeholder: Replace this entire comment block with your IDX code --&gt;<br>
+        &lt;iframe src="YOUR_IDX_PROVIDER_URL"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;width="100%" height="700"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;frameborder="0"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;title="Live MLS Listings — Ontario"&gt;<br>
+        &lt;/iframe&gt;
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     MORTGAGE CALCULATOR
+══════════════════════════════ -->
+<section id="calculator" class="section section-mid">
+  <div class="container">
+    <div class="calc-layout">
+      <div>
+        <div class="reveal"><div class="eyebrow">Financial Planning</div>
+        <h2 class="sec-title">Mortgage <em>Calculator</em></h2>
+        <p class="sec-body">Model your mortgage payments using accurate Canadian amortization. Understand your numbers before you sit at the table.</p></div>
+        <div class="calc-form reveal rd1">
+          <div class="fld-row">
             <div class="fld">
               <label>Purchase Price</label>
-              <div class="input-prefix">
-                <span>$</span>
-                <input type="number" id="purchasePrice" placeholder="750,000" min="0" step="1000"/>
-              </div>
+              <div class="ip"><span>$</span><input type="number" id="cPrice" placeholder="750,000" min="0" step="1000"/></div>
             </div>
             <div class="fld">
               <label>Down Payment</label>
-              <div class="input-prefix">
-                <span>$</span>
-                <input type="number" id="downPayment" placeholder="150,000" min="0" step="1000"/>
-              </div>
+              <div class="ip"><span>$</span><input type="number" id="cDown" placeholder="150,000" min="0" step="1000"/></div>
             </div>
           </div>
-
-          <div class="calc-row">
+          <div class="fld-row">
             <div class="fld">
               <label>Annual Interest Rate</label>
-              <div class="input-suffix">
-                <input type="number" id="interestRate" placeholder="5.50" min="0" max="30" step="0.01"/>
-                <span>%</span>
-              </div>
+              <div class="is"><input type="number" id="cRate" placeholder="5.50" min="0.01" max="25" step="0.01"/><span>%</span></div>
             </div>
             <div class="fld">
               <label>Amortization Period</label>
-              <div class="input-suffix">
-                <input type="number" id="amortization" placeholder="25" min="1" max="30" step="1"/>
-                <span>yrs</span>
-              </div>
+              <div class="is"><input type="number" id="cYears" placeholder="25" min="1" max="30" step="1"/><span>yrs</span></div>
             </div>
           </div>
-
-          <div class="fld calc-full">
+          <div class="fld">
             <label>Payment Frequency</label>
-            <select id="frequency">
+            <select id="cFreq">
               <option value="12">Monthly</option>
               <option value="26">Bi-Weekly</option>
             </select>
           </div>
-
-          <button class="calc-submit" onclick="calculateMortgage()">Calculate Payment</button>
+          <button class="calc-btn" onclick="runCalc()">Calculate Payment</button>
         </div>
       </div>
-
-      <!-- Right: Results -->
-      <div class="calc-results reveal reveal-delay-2">
-        <div class="sec-eyebrow">Calculation Output</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--white);margin-top:0.5rem;">Payment Breakdown</h3>
-
-        <div class="results-panel" id="resultsPanel">
-          <div class="calc-placeholder" id="calcPlaceholder">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-            <p>Enter your figures above<br>to see your payment breakdown.</p>
+      <div class="calc-results reveal rd2">
+        <div class="eyebrow">Output</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--white);margin-top:.4rem">Payment Breakdown</h3>
+        <div class="results-panel">
+          <div id="calcEmpty" class="calc-empty">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+            <p>Enter your details above<br>to see your payment calculation.</p>
           </div>
-          <div id="calcOutput" style="display:none;">
-            <div class="rp-title" id="rpTitle">Monthly Payment Summary</div>
-            <div class="result-rows">
-              <div class="result-row">
-                <span class="rr-label">Loan Amount</span>
-                <span class="rr-value" id="resLoan">—</span>
-              </div>
-              <div class="result-row" style="background:rgba(191,163,100,0.04);">
-                <span class="rr-label">Payment per Period</span>
-                <span class="rr-value highlight" id="resPayment">—</span>
-              </div>
-              <div class="result-row">
-                <span class="rr-label">First Payment — Interest</span>
-                <span class="rr-value" id="resInterest">—</span>
-              </div>
-              <div class="result-row">
-                <span class="rr-label">First Payment — Principal</span>
-                <span class="rr-value" id="resPrincipal">—</span>
-              </div>
-              <div class="result-row">
-                <span class="rr-label">Total Interest Paid</span>
-                <span class="rr-value" id="resTotalInterest">—</span>
-              </div>
-              <div class="result-row">
-                <span class="rr-label">Total Cost of Mortgage</span>
-                <span class="rr-value" id="resTotalCost">—</span>
-              </div>
-            </div>
-            <p class="result-note">
-              This calculation is for illustrative purposes only and does not constitute financial or mortgage advice. Actual rates and payments depend on your lender, qualification, and mortgage product. Consult a licensed mortgage professional.
-            </p>
+          <div id="calcOut" style="display:none">
+            <div class="rp-head" id="rHead">Monthly Payment Summary</div>
+            <div class="rrow"><span class="rl">Loan Amount</span><span class="rv" id="rLoan">—</span></div>
+            <div class="rrow" style="background:rgba(201,168,76,.04)"><span class="rl">Payment Per Period</span><span class="rv big" id="rPayment">—</span></div>
+            <div class="rrow"><span class="rl">First Payment — Interest</span><span class="rv" id="rInt">—</span></div>
+            <div class="rrow"><span class="rl">First Payment — Principal</span><span class="rv" id="rPrinc">—</span></div>
+            <div class="rrow"><span class="rl">Total Interest Paid</span><span class="rv" id="rTotalInt">—</span></div>
+            <div class="rrow"><span class="rl">Total Cost of Mortgage</span><span class="rv" id="rTotalCost">—</span></div>
+            <p class="calc-note">Calculated using Canadian mortgage amortization with semi-annual compounding. This is for illustrative purposes only. Consult a licensed mortgage broker for actual qualification and rate advice.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════
-       STRATEGY
-  ══════════════════════════════ -->
-  <section id="strategy" class="section section-alt2">
-    <div class="sec-eyebrow reveal">My Approach</div>
-    <h2 class="sec-title reveal reveal-delay-1">How I Approach <em>Real Estate</em></h2>
-
-    <div class="strategy-layout">
-      <div>
-        <p class="sec-body reveal reveal-delay-2">My approach to real estate is not transactional — it is strategic. Every client engagement follows a disciplined framework designed to produce outcomes aligned with long-term financial interests.</p>
-
-        <div class="strategy-pillars">
-          <div class="pillar reveal reveal-delay-1">
-            <span class="pillar-n">01</span>
-            <div>
-              <div class="pillar-title">Capital Protection First</div>
-              <div class="pillar-desc">Before evaluating upside, I assess downside risk. Overpaying in the wrong conditions or for the wrong property can set a client's financial position back years. Protection is the foundation.</div>
-            </div>
-          </div>
-          <div class="pillar reveal reveal-delay-2">
-            <span class="pillar-n">02</span>
-            <div>
-              <div class="pillar-title">Data-Driven Evaluation</div>
-              <div class="pillar-desc">Pricing opinions backed by comparable sales analysis, days-on-market data, and neighborhood trend evaluation — not intuition, not pressure.</div>
-            </div>
-          </div>
-          <div class="pillar reveal reveal-delay-3">
-            <span class="pillar-n">03</span>
-            <div>
-              <div class="pillar-title">Structured Negotiation</div>
-              <div class="pillar-desc">Negotiation strategy is prepared in advance: target price, walk-away threshold, deposit positioning, and condition strategy — all defined before the offer is submitted.</div>
-            </div>
-          </div>
-          <div class="pillar reveal reveal-delay-4">
-            <span class="pillar-n">04</span>
-            <div>
-              <div class="pillar-title">Execution Discipline</div>
-              <div class="pillar-desc">Timelines are met. Documents are reviewed. Deadlines don't slip. The operational side of a transaction is managed with the same attention given to the strategic side.</div>
-            </div>
-          </div>
-          <div class="pillar reveal reveal-delay-5">
-            <span class="pillar-n">05</span>
-            <div>
-              <div class="pillar-title">Long-Term Value Thinking</div>
-              <div class="pillar-desc">A property is only as good as its future exit conditions. Every purchase is evaluated not just for today — but for resale viability, rental potential, and five-year positioning.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="strategy-manifesto reveal reveal-delay-2">
-        <div class="manifesto-heading">
-          Real estate is not about<br>
-          <em>excitement</em> — it is about<br>
-          <em>execution.</em>
-        </div>
-        <p class="manifesto-body">
-          The Ontario market rewards buyers and sellers who approach it with preparation, not emotion. Whether you are purchasing your first home, evaluating an investment property, or positioning a sale for maximum return — the framework matters more than the market.
-        </p>
-        <p class="manifesto-body">
-          My role is to give you clarity where there is noise, structure where there is uncertainty, and a clear recommendation backed by analysis — not pressure.
-        </p>
-        <div class="manifesto-principles">
-          <div class="mp">No pressure tactics — only informed recommendations</div>
-          <div class="mp">Your financial position takes priority over closing speed</div>
-          <div class="mp">Every offer structured with conditions reviewed</div>
-          <div class="mp">Transparent communication at every stage</div>
-          <div class="mp">Ontario market — Brampton, GTA, Mississauga, Caledon</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════
-       CONTACT
-  ══════════════════════════════ -->
-  <section id="contact" class="section section-alt">
+<!-- ══════════════════════════════
+     CONTACT
+══════════════════════════════ -->
+<section id="contact" class="section section-dark">
+  <div class="container">
     <div class="contact-layout">
-      <!-- Form -->
       <div>
-        <div class="reveal">
-          <div class="sec-eyebrow">Get In Touch</div>
-          <h2 class="sec-title">Start a <em>Conversation</em></h2>
-          <p class="sec-body">Reach out to discuss your real estate goals — buying, selling, investing, or simply exploring your options. I respond directly and personally.</p>
-        </div>
-
-        <div class="contact-form-wrap reveal reveal-delay-1">
+        <div class="reveal"><div class="eyebrow">Get In Touch</div>
+        <h2 class="sec-title">Start a <em>Conversation</em></h2>
+        <p class="sec-body">Whether you're buying, selling, investing, or simply exploring your options — reach out directly. All inquiries are handled personally.</p></div>
+        <div class="cf-wrap reveal rd1">
           <div class="cf">
             <div class="cf-row">
-              <div class="cfield">
-                <label>First Name</label>
-                <input type="text" id="cfFirstName" placeholder="First name"/>
-              </div>
-              <div class="cfield">
-                <label>Last Name</label>
-                <input type="text" id="cfLastName" placeholder="Last name"/>
-              </div>
+              <div class="cfd"><label>First Name</label><input type="text" id="cfFN" placeholder="First name"/></div>
+              <div class="cfd"><label>Last Name</label><input type="text" id="cfLN" placeholder="Last name"/></div>
             </div>
             <div class="cf-row">
-              <div class="cfield">
-                <label>Email Address</label>
-                <input type="email" id="cfEmail" placeholder="your@email.com"/>
-              </div>
-              <div class="cfield">
-                <label>Phone Number</label>
-                <input type="tel" id="cfPhone" placeholder="647-000-0000"/>
-              </div>
+              <div class="cfd"><label>Email Address</label><input type="email" id="cfEmail" placeholder="your@email.com"/></div>
+              <div class="cfd"><label>Phone Number</label><input type="tel" id="cfPhone" placeholder="647-000-0000"/></div>
             </div>
-            <div class="cfield cf-full">
+            <div class="cfd">
               <label>Inquiry Type</label>
               <select id="cfType">
-                <option value="">Select an option</option>
+                <option value="">Select inquiry type</option>
                 <option>Buying</option>
                 <option>Selling</option>
                 <option>Investing</option>
+                <option>Power of Sale Inquiry</option>
+                <option>Free Market Evaluation</option>
                 <option>Strategic Consultation</option>
+                <option>General Question</option>
               </select>
             </div>
-            <div class="cfield cf-full">
-              <label>Message</label>
-              <textarea id="cfMessage" rows="5" placeholder="Briefly describe your situation, timeline, or questions…"></textarea>
-            </div>
-            <button class="cf-btn" onclick="submitContactForm()">Submit Inquiry</button>
+            <div class="cfd"><label>Message</label><textarea id="cfMsg" rows="5" placeholder="Describe your situation, goals, or questions…"></textarea></div>
+            <button class="cf-submit" onclick="submitContact()">Send Message</button>
           </div>
         </div>
       </div>
-
-      <!-- Contact Info -->
       <div>
-        <div class="reveal">
-          <div class="sec-eyebrow">Contact Details</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--white);margin-top:0.5rem;line-height:1.2;">Direct.<br><em>Responsive.</em> Professional.</h3>
-        </div>
-
-        <div class="contact-info-panel reveal reveal-delay-1">
-          <div class="ci-block">
-            <div class="ci-icon-box">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 011.18 3 2 2 0 013.18 1H6a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <div>
-              <span class="ci-lbl">Direct Phone</span>
-              <span class="ci-val"><a href="tel:6475461300">647-546-1300</a></span>
-            </div>
+        <div class="reveal"><div class="eyebrow">Direct Contact</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;color:var(--white);line-height:1.2;margin-top:.4rem">Direct.<br><em>Personal.</em><br>Responsive.</h3></div>
+        <div class="ci-panel reveal rd1">
+          <div class="ci">
+            <div class="ci-box"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 011.18 3 2 2 0 013.18 1H6a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><span class="ci-lbl">Phone / WhatsApp</span><span class="ci-val"><a href="tel:6475461300">647-546-1300</a></span></div>
           </div>
-          <div class="ci-block">
-            <div class="ci-icon-box">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <span class="ci-lbl">Email Address</span>
-              <span class="ci-val"><a href="mailto:harbirgill12@gmail.com">harbirgill12@gmail.com</a></span>
-            </div>
+          <div class="ci">
+            <div class="ci-box"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><span class="ci-lbl">Email</span><span class="ci-val"><a href="mailto:harbirgill12@gmail.com">harbirgill12@gmail.com</a></span></div>
           </div>
-          <div class="ci-block">
-            <div class="ci-icon-box">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <div>
-              <span class="ci-lbl">Service Area</span>
-              <span class="ci-val">Brampton · GTA · Mississauga<br>Caledon · Surrounding Ontario Regions</span>
-            </div>
+          <div class="ci">
+            <div class="ci-box"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+            <div><span class="ci-lbl">WhatsApp</span><span class="ci-val"><a href="https://wa.me/16475461300" target="_blank" rel="noopener">Chat on WhatsApp</a></span></div>
           </div>
-          <div class="ci-block">
-            <div class="ci-icon-box">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-            </div>
-            <div>
-              <span class="ci-lbl">Brokerage</span>
-              <span class="ci-val">RE/MAX Gold Realty Inc., Brokerage</span>
-            </div>
+          <div class="ci">
+            <div class="ci-box"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <div><span class="ci-lbl">Service Area</span><span class="ci-val">Brampton · GTA · Mississauga<br>Caledon · All Ontario</span></div>
           </div>
-        </div>
-
-        <div class="contact-note reveal reveal-delay-2">
-          All inquiries are handled personally and confidentially. There is no obligation to proceed — only an honest conversation about your situation and how I can help.
+          <div class="ci">
+            <div class="ci-box"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+            <div><span class="ci-lbl">Brokerage</span><span class="ci-val">RE/MAX Gold Realty Inc., Brokerage</span></div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════
-       FOOTER
-  ══════════════════════════════ -->
-  <footer>
+<!-- ══════════════════════════════
+     BOOK CONSULTATION
+══════════════════════════════ -->
+<section id="bookConsultation" class="section section-mid">
+  <div class="container">
+    <div style="max-width:650px;margin:0 auto;text-align:center" class="reveal">
+      <div class="eyebrow" style="justify-content:center">Book a Meeting</div>
+      <h2 class="sec-title">Schedule a <em>Consultation</em></h2>
+      <p class="sec-body" style="margin:0 auto 2rem">Book a free, no-obligation strategy call or meeting at your convenience. Select a time that works for you.</p>
+    </div>
+    <div class="cal-wrap reveal rd1">
+      <div class="cal-icon">
+        <svg width="52" height="52" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div class="cal-title">Calendly Booking Widget</div>
+      <p style="font-size:.82rem;font-weight:300;color:var(--text3);margin-top:.4rem;line-height:1.75">Insert your Calendly embed script below to allow clients to book directly into your calendar.</p>
+      <div class="cal-code">
+        &lt;!-- Insert Calendly embed script here --&gt;<br>
+        &lt;!-- Option 1: Inline Widget --&gt;<br>
+        &lt;div class="calendly-inline-widget"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;data-url="https://calendly.com/YOUR_USERNAME"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;style="min-width:320px;height:700px;"&gt;&lt;/div&gt;<br>
+        &lt;script src="https://assets.calendly.com/assets/external/widget.js"&gt;&lt;/script&gt;<br><br>
+        &lt;!-- Option 2: Popup Button --&gt;<br>
+        &lt;!-- Replace YOUR_USERNAME with your Calendly account handle --&gt;
+      </div>
+      <div style="margin-top:2rem">
+        <a href="#contact" class="btn btn-outline-gold">Or Send a Direct Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     WHATSAPP FLOAT
+══════════════════════════════ -->
+<a href="https://wa.me/16475461300" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <div class="wa-tooltip">Chat on WhatsApp</div>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">
+      <div>
         <div class="fb-name">Harbir Gill</div>
         <div class="fb-brokerage">RE/MAX Gold Realty Inc., Brokerage</div>
-        <div class="fb-area">Serving Ontario — Brampton · GTA · Mississauga · Caledon</div>
+        <div class="fb-area">Serving All of Ontario — Brampton · GTA · Mississauga · Caledon</div>
       </div>
-      <ul class="footer-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">Background</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#strategy">Strategy</a></li>
-        <li><a href="#calculator">Calculator</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#buyers">Buyers</a>
+        <a href="#sellers">Sellers</a>
+        <a href="#investors">Investors</a>
+        <a href="#powerOfSale">Power of Sale</a>
+        <a href="#deals">Deals</a>
+        <a href="#marketWatch">Market Watch</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#contact">Contact</a>
+      </div>
       <div class="footer-contact">
         <a href="tel:6475461300">647-546-1300</a>
         <a href="mailto:harbirgill12@gmail.com">harbirgill12@gmail.com</a>
+        <a href="https://wa.me/16475461300" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-disclaimer">
-        Information provided on this website is for general informational purposes only and does not constitute legal, financial, mortgage, or investment advice. Real estate transactions involve risk and individual circumstances vary. Consult a licensed professional before making any financial or real estate decisions. Harbir Gill is a registered Realtor with RE/MAX Gold Realty Inc., Brokerage. All rights reserved.
-      </p>
+      <p class="footer-disc">Information provided on this website is for general informational purposes only and does not constitute legal, financial, mortgage, or investment advice. Real estate transactions involve risk and individual circumstances vary significantly. Always consult a licensed professional before making any real estate or financial decisions. Harbir Gill is a registered Realtor with RE/MAX Gold Realty Inc., Brokerage. All rights reserved.</p>
       <span class="footer-copy">© 2026 Harbir Gill</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- ══════════════════════════════
-       JAVASCRIPT
-  ══════════════════════════════ -->
-  <script>
-    /* ─── NAV SCROLL ─── */
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    });
+<!-- ══════════════════════════════
+     JAVASCRIPT
+══════════════════════════════ -->
+<script>
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, {passive: true});
 
-    /* ─── HAMBURGER ─── */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    let menuOpen = false;
+/* ── HAMBURGER ── */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+let mOpen = false;
+hamburger.addEventListener('click', () => {
+  mOpen = !mOpen;
+  mobileNav.classList.toggle('open', mOpen);
+});
+function closeMobile() {
+  mOpen = false;
+  mobileNav.classList.remove('open');
+}
 
-    hamburger.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      mobileMenu.classList.toggle('open', menuOpen);
-    });
-
-    function closeMenu() {
-      menuOpen = false;
-      mobileMenu.classList.remove('open');
+/* ── SMOOTH SCROLL OFFSET ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const tgt = document.querySelector(a.getAttribute('href'));
+    if (tgt) {
+      e.preventDefault();
+      const top = tgt.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({top, behavior:'smooth'});
     }
+  });
+});
 
-    /* ─── SCROLL REVEAL ─── */
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(el => observer.observe(el));
-
-    /* ─── MORTGAGE CALCULATOR ─── */
-    function fmt(n) {
-      return '$' + n.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revObs.unobserve(e.target);
     }
+  });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(r => revObs.observe(r));
 
-    function calculateMortgage() {
-      const price      = parseFloat(document.getElementById('purchasePrice').value);
-      const down       = parseFloat(document.getElementById('downPayment').value);
-      const annualRate = parseFloat(document.getElementById('interestRate').value);
-      const years      = parseInt(document.getElementById('amortization').value);
-      const freqVal    = parseInt(document.getElementById('frequency').value);
+/* ── MORTGAGE CALCULATOR ── */
+function fmt(n) {
+  return '$' + n.toLocaleString('en-CA', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function runCalc() {
+  const price = parseFloat(document.getElementById('cPrice').value);
+  const down  = parseFloat(document.getElementById('cDown').value);
+  const rate  = parseFloat(document.getElementById('cRate').value);
+  const years = parseInt(document.getElementById('cYears').value);
+  const freq  = parseInt(document.getElementById('cFreq').value);
 
-      // Validation
-      if (isNaN(price) || isNaN(down) || isNaN(annualRate) || isNaN(years)) {
-        alert('Please fill in all fields to calculate your mortgage payment.');
-        return;
-      }
-      if (down >= price) {
-        alert('Down payment cannot exceed or equal the purchase price.');
-        return;
-      }
-      if (annualRate <= 0) {
-        alert('Please enter a valid interest rate.');
-        return;
-      }
+  if (isNaN(price)||isNaN(down)||isNaN(rate)||isNaN(years)) {
+    alert('Please fill in all fields to calculate.'); return;
+  }
+  if (down >= price) { alert('Down payment must be less than the purchase price.'); return; }
+  if (rate <= 0)     { alert('Please enter a valid interest rate.'); return; }
+  if (years < 1)     { alert('Amortization must be at least 1 year.'); return; }
 
-      const loan     = price - down;
-      const freqLabel = freqVal === 12 ? 'Monthly' : 'Bi-Weekly';
-      const n        = years * freqVal;  // total number of periods
+  const loan = price - down;
+  // Canadian mortgage: semi-annual compounding
+  const r = Math.pow(1 + rate / 200, 2 / freq) - 1;
+  const n = years * freq;
+  // P = L[r(1+r)^n] / [(1+r)^n - 1]
+  const factor  = Math.pow(1 + r, n);
+  const payment = loan * (r * factor) / (factor - 1);
 
-      // Canadian mortgage uses semi-annual compounding
-      // Effective period rate: (1 + annualRate/200)^(2/freq) - 1
-      const semiAnnualRate = annualRate / 200;
-      const periodRate     = Math.pow(1 + semiAnnualRate, 2 / freqVal) - 1;
+  const firstInt   = loan * r;
+  const firstPrinc = payment - firstInt;
+  const totalPaid  = payment * n;
+  const totalInt   = totalPaid - loan;
+  const totalCost  = totalPaid + down;
 
-      // Amortization formula: P = L * [r(1+r)^n] / [(1+r)^n - 1]
-      const factor  = Math.pow(1 + periodRate, n);
-      const payment = loan * (periodRate * factor) / (factor - 1);
+  const lbl = freq === 12 ? 'Monthly' : 'Bi-Weekly';
+  document.getElementById('rHead').textContent = lbl + ' Payment Summary';
+  document.getElementById('rLoan').textContent      = fmt(loan);
+  document.getElementById('rPayment').textContent   = fmt(payment);
+  document.getElementById('rInt').textContent       = fmt(firstInt);
+  document.getElementById('rPrinc').textContent     = fmt(firstPrinc);
+  document.getElementById('rTotalInt').textContent  = fmt(totalInt);
+  document.getElementById('rTotalCost').textContent = fmt(totalCost);
 
-      // First payment split
-      const firstInterest  = loan * periodRate;
-      const firstPrincipal = payment - firstInterest;
+  document.getElementById('calcEmpty').style.display = 'none';
+  document.getElementById('calcOut').style.display   = 'block';
+}
 
-      // Totals
-      const totalPaid     = payment * n;
-      const totalInterest = totalPaid - loan;
-      const totalCost     = totalPaid + down;
+/* ── CONTACT FORM → MAILTO ── */
+function submitContact() {
+  const fn   = document.getElementById('cfFN').value.trim();
+  const ln   = document.getElementById('cfLN').value.trim();
+  const em   = document.getElementById('cfEmail').value.trim();
+  const ph   = document.getElementById('cfPhone').value.trim();
+  const type = document.getElementById('cfType').value;
+  const msg  = document.getElementById('cfMsg').value.trim();
 
-      // Update UI
-      document.getElementById('rpTitle').textContent = freqLabel + ' Payment Summary';
-      document.getElementById('resLoan').textContent        = fmt(loan);
-      document.getElementById('resPayment').textContent     = fmt(payment);
-      document.getElementById('resInterest').textContent    = fmt(firstInterest);
-      document.getElementById('resPrincipal').textContent   = fmt(firstPrincipal);
-      document.getElementById('resTotalInterest').textContent = fmt(totalInterest);
-      document.getElementById('resTotalCost').textContent   = fmt(totalCost);
+  if (!fn||!ln||!em||!type||!msg) {
+    alert('Please complete all required fields before submitting.'); return;
+  }
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRx.test(em)) {
+    alert('Please enter a valid email address.'); return;
+  }
 
-      document.getElementById('calcPlaceholder').style.display = 'none';
-      document.getElementById('calcOutput').style.display      = 'block';
-    }
-
-    /* ─── CONTACT FORM ─── */
-    function submitContactForm() {
-      const first   = document.getElementById('cfFirstName').value.trim();
-      const last    = document.getElementById('cfLastName').value.trim();
-      const email   = document.getElementById('cfEmail').value.trim();
-      const phone   = document.getElementById('cfPhone').value.trim();
-      const type    = document.getElementById('cfType').value;
-      const message = document.getElementById('cfMessage').value.trim();
-
-      if (!first || !last || !email || !type || !message) {
-        alert('Please complete all required fields before submitting.');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      alert(
-        'Thank you, ' + first + '.\n\n' +
-        'Your inquiry has been received. Harbir will follow up with you directly at ' + email +
-        (phone ? ' or ' + phone : '') + '.\n\n' +
-        'Inquiry type: ' + type
-      );
-
-      // Clear form
-      ['cfFirstName','cfLastName','cfEmail','cfPhone','cfMessage'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      document.getElementById('cfType').value = '';
-    }
-
-    /* ─── SMOOTH SCROLL FOR NAV LINKS ─── */
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = target.getBoundingClientRect().top + window.scrollY - 76;
-          window.scrollTo({ top: offset, behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
+  const subject = encodeURIComponent('Website Inquiry — ' + type + ' — ' + fn + ' ' + ln);
+  const body = encodeURIComponent(
+    'Name: '       + fn + ' ' + ln  + '\r\n' +
+    'Email: '      + em              + '\r\n' +
+    'Phone: '      + (ph || 'Not provided') + '\r\n' +
+    'Inquiry Type: '+ type           + '\r\n\r\n' +
+    'Message:\r\n' + msg
+  );
+  window.location.href = 'mailto:harbirgill12@gmail.com?subject=' + subject + '&body=' + body;
+}
+</script>
 </body>
 </html>
